@@ -1,15 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mood Tracker</title>
-    
 </head>
+
 <body>
-    <h1>Mood Tracking Calendar</h1>
-    <form action="submitted data.html" method="POST">
-        <table>
+    <h1 style="text-align: center; margin-bottom: 20px;">Mood Tracking Calendar</h1>
+
+    <!-- Month Selection -->
+    <div style="text-align: center; margin-bottom: 20px;">
+        <label for="month">Select Month:</label>
+        <select id="month" name="month">
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+        </select>
+    </div>
+
+    <!-- Mood Tracking Form -->
+    <form action="submitted_data.html" method="POST">
+        <table border="1" cellpadding="10" cellspacing="5" style="width: 100%; margin: 0 auto; text-align: center;">
             <thead>
                 <tr>
                     <th></th>
@@ -26,77 +48,81 @@
                 <tr>
                     <th>Feeling Happy</th>
                     <td><input type="checkbox" name="monday_feeling_happy"></td>
-                    <td><input type="checkbox" name="monday_feeling_anxious"></td>
-                    <td><input type="checkbox" name="monday_feeling_depressed"></td>
-                    <td><input type="checkbox" name="monday_feeling_angry"></td>
-                    <td><input type="checkbox" name="monday_feeling_sad"></td>
-                    <td><input type="checkbox" name="monday_have_insomnia"></td>
-                    <td><input type="checkbox" name="monday_feeling_stressed"></td>
+                    <td><input type="checkbox" name="tuesday_feeling_happy"></td>
+                    <td><input type="checkbox" name="wednesday_feeling_happy"></td>
+                    <td><input type="checkbox" name="thursday_feeling_happy"></td>
+                    <td><input type="checkbox" name="friday_feeling_happy"></td>
+                    <td><input type="checkbox" name="saturday_feeling_happy"></td>
+                    <td><input type="checkbox" name="sunday_feeling_happy"></td>
                 </tr>
                 <tr>
                     <th>Feeling Anxious</th>
-                    <td><input type="checkbox" name="tuesday_feeling_happy"></td>
+                    <td><input type="checkbox" name="monday_feeling_anxious"></td>
                     <td><input type="checkbox" name="tuesday_feeling_anxious"></td>
-                    <td><input type="checkbox" name="tuesday_feeling_depressed"></td>
-                    <td><input type="checkbox" name="tuesday_feeling_angry"></td>
-                    <td><input type="checkbox" name="tuesday_feeling_sad"></td>
-                    <td><input type="checkbox" name="tuesday_have_insomnia"></td>
-                    <td><input type="checkbox" name="tuesday_feeling_stressed"></td>
-                </tr>
-                <tr>
-                    <th>Feeling Depressed </th>
-                    <td><input type="checkbox" name="wednesday_feeling_happy"></td>
                     <td><input type="checkbox" name="wednesday_feeling_anxious"></td>
-                    <td><input type="checkbox" name="wednesday_feeling_depressed"></td>
-                    <td><input type="checkbox" name="wednesday_feeling_angry"></td>
-                    <td><input type="checkbox" name="wednesday_feeling_sad"></td>
-                    <td><input type="checkbox" name="wednesday_have_insomnia"></td>
-                    <td><input type="checkbox" name="wednesday_feeling_stressed"></td>
-                </tr>
-                <tr>
-                    <th>Feeling Angry </th>
-                    <td><input type="checkbox" name="thursday_feeling_happy"></td>
                     <td><input type="checkbox" name="thursday_feeling_anxious"></td>
+                    <td><input type="checkbox" name="friday_feeling_anxious"></td>
+                    <td><input type="checkbox" name="saturday_feeling_anxious"></td>
+                    <td><input type="checkbox" name="sunday_feeling_anxious"></td>
+                </tr>
+                <tr>
+                    <th>Feeling Depressed</th>
+                    <td><input type="checkbox" name="monday_feeling_depressed"></td>
+                    <td><input type="checkbox" name="tuesday_feeling_depressed"></td>
+                    <td><input type="checkbox" name="wednesday_feeling_depressed"></td>
                     <td><input type="checkbox" name="thursday_feeling_depressed"></td>
+                    <td><input type="checkbox" name="friday_feeling_depressed"></td>
+                    <td><input type="checkbox" name="saturday_feeling_depressed"></td>
+                    <td><input type="checkbox" name="sunday_feeling_depressed"></td>
+                </tr>
+                <tr>
+                    <th>Feeling Angry</th>
+                    <td><input type="checkbox" name="monday_feeling_angry"></td>
+                    <td><input type="checkbox" name="tuesday_feeling_angry"></td>
+                    <td><input type="checkbox" name="wednesday_feeling_angry"></td>
                     <td><input type="checkbox" name="thursday_feeling_angry"></td>
+                    <td><input type="checkbox" name="friday_feeling_angry"></td>
+                    <td><input type="checkbox" name="saturday_feeling_angry"></td>
+                    <td><input type="checkbox" name="sunday_feeling_angry"></td>
+                </tr>
+                <tr>
+                    <th>Feeling Sad</th>
+                    <td><input type="checkbox" name="monday_feeling_sad"></td>
+                    <td><input type="checkbox" name="tuesday_feeling_sad"></td>
+                    <td><input type="checkbox" name="wednesday_feeling_sad"></td>
                     <td><input type="checkbox" name="thursday_feeling_sad"></td>
+                    <td><input type="checkbox" name="friday_feeling_sad"></td>
+                    <td><input type="checkbox" name="saturday_feeling_sad"></td>
+                    <td><input type="checkbox" name="sunday_feeling_sad"></td>
+                </tr>
+                <tr>
+                    <th>Have Insomnia</th>
+                    <td><input type="checkbox" name="monday_have_insomnia"></td>
+                    <td><input type="checkbox" name="tuesday_have_insomnia"></td>
+                    <td><input type="checkbox" name="wednesday_have_insomnia"></td>
                     <td><input type="checkbox" name="thursday_have_insomnia"></td>
+                    <td><input type="checkbox" name="friday_have_insomnia"></td>
+                    <td><input type="checkbox" name="saturday_have_insomnia"></td>
+                    <td><input type="checkbox" name="sunday_have_insomnia"></td>
+                </tr>
+                <tr>
+                    <th>Feeling Stressed</th>
+                    <td><input type="checkbox" name="monday_feeling_stressed"></td>
+                    <td><input type="checkbox" name="tuesday_feeling_stressed"></td>
+                    <td><input type="checkbox" name="wednesday_feeling_stressed"></td>
                     <td><input type="checkbox" name="thursday_feeling_stressed"></td>
-                </tr>
-                <tr>
-                    <th>Feeling Sad </th>
-                    <td><input type="checkbox" name="friday_feeling_happy"></td>
-                    <td><input type="checkbox" name="friday_feeling_anxious"></td>
-                    <td><input type="checkbox" name="friday_feeling_depressed"></td>
-                    <td><input type="checkbox" name="friday_feeling_angry"></td>
-                    <td><input type="checkbox" name="friday_feeling_sad"></td>
-                    <td><input type="checkbox" name="friday_have_insomnia"></td>
                     <td><input type="checkbox" name="friday_feeling_stressed"></td>
-                </tr>
-                <tr>
-                    <th>Have Insomnia </th>
-                    <td><input type="checkbox" name="friday_feeling_happy"></td>
-                    <td><input type="checkbox" name="friday_feeling_anxious"></td>
-                    <td><input type="checkbox" name="friday_feeling_depressed"></td>
-                    <td><input type="checkbox" name="friday_feeling_angry"></td>
-                    <td><input type="checkbox" name="friday_feeling_sad"></td>
-                    <td><input type="checkbox" name="friday_have_insomnia"></td>
-                    <td><input type="checkbox" name="friday_feeling_stressed"></td>
-                </tr>
-                <tr>
-                    <th>Feeling Stressed </th>
-                    <td><input type="checkbox" name="friday_feeling_happy"></td>
-                    <td><input type="checkbox" name="friday_feeling_anxious"></td>
-                    <td><input type="checkbox" name="friday_feeling_depressed"></td>
-                    <td><input type="checkbox" name="friday_feeling_angry"></td>
-                    <td><input type="checkbox" name="friday_feeling_sad"></td>
-                    <td><input type="checkbox" name="friday_have_insomnia"></td>
-                    <td><input type="checkbox" name="friday_feeling_stressed"></td>
+                    <td><input type="checkbox" name="saturday_feeling_stressed"></td>
+                    <td><input type="checkbox" name="sunday_feeling_stressed"></td>
                 </tr>
             </tbody>
         </table>
-        <button class="submit-button" type="submit">Record Your Feelings</button>
+
+        <br>
+        <div style="text-align: center; margin-top: 20px;">
+            <button class="submit-button" type="submit" style="padding: 10px 20px;">Record Your Feelings</button>
+        </div>
     </form>
 </body>
-</html>
 
+</html>
