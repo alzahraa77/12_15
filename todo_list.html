@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Style the body */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            line-height: 1.6;
+        }
+
+        /* Navigation bar styling */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px 0;
+        }
+
+        /* Navigation links */
+        .navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        /* Hover effects on links */
+        .navbar a:hover {
+            background-color: #575757;
+        }
+
+        /* Active link style */
+        .navbar a.active {
+            background-color: #4CAF50;
+        }
+
+        /* Main content area */
+        .main-content {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="home.html">Home</a>
+        <a href="meditationblog.html">Meditation Blog</a>
+        <a href="Diary.html">Diary</a>
+        <a href="todo_list.html" class="active">To-Do List</a>
+        <a href="moodtracker.html">Mood Tracker</a>
+    </div>
+
+    <div class="main-content">
+        <h1>To-Do List Page</h1>
+        <p>This is where the To-Do List functionality will be.</p>
+    </div>
+</body>
+</html>
