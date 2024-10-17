@@ -5,9 +5,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mood Tracker</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Style the body */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Navigation bar styling */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px 0;
+        }
+
+        /* Navigation links */
+        .navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        /* Hover effects on links */
+        .navbar a:hover {
+            background-color: #575757;
+        }
+
+        /* Active link style */
+        .navbar a.active {
+            background-color: #4CAF50;
+        }
+
+        /* Content for each page */
+        .page-content {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        /* Mood Tracker Form styling */
+        table {
+            margin: 0 auto;
+            text-align: center;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        /* Submit button styling */
+        .submit-button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 
 <body>
+    <!-- Navigation bar -->
+    <div class="navbar">
+        <a href="home.html">Home</a>
+        <a href="meditationblog.html">Meditation Blog</a>
+        <a href="Diary.html">Diary</a>
+        <a href="todo_list.html">To-Do List</a>
+        <a href="moodtracker.html" class="active">Mood Tracker</a>
+    </div>
+
     <h1 style="text-align: center; margin-bottom: 20px;">Mood Tracking Calendar</h1>
 
     <!-- Month Selection -->
@@ -31,7 +115,7 @@
 
     <!-- Mood Tracking Form -->
     <form action="submitted_data.html" method="POST">
-        <table border="1" cellpadding="10" cellspacing="5" style="width: 100%; margin: 0 auto; text-align: center;">
+        <table>
             <thead>
                 <tr>
                     <th></th>
@@ -119,8 +203,8 @@
         </table>
 
         <br>
-        <div style="text-align: center; margin-top: 20px;">
-            <button class="submit-button" type="submit" style="padding: 10px 20px;">Record Your Feelings</button>
+        <div style="text-align: center;">
+            <button class="submit-button" type="submit">Record Your Feelings</button>
         </div>
     </form>
 </body>
