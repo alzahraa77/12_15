@@ -1,0 +1,13 @@
+# Instructions for Accessing the Website
+
+## Public Access
+To access the website online, visit the following URL:
+
+https://alzahraa77.github.io/12_15
+
+## Local Access
+If you want to access the website locally, follow these steps:
+
+1. Download all the files from the repository to a single folder on your computer.
+2. Open the `home.html` file from the folder you downloaded.
+enjoy!
