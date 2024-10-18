@@ -22,6 +22,11 @@ Designed with a calming, minimalist aesthetic, GratiVibe will help users focus a
 - CSS -- till now
 - JavaScript
 
+## future improvement
+1- may add login - sign up pages with javascript user database.
+2- daily affirmation will be dynamic and change everyday using javascript.
+3- will view the previous journal user write.
+4- will store the user feelings and show the user his analysis.
 
 ---
 
