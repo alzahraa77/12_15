@@ -31,6 +31,7 @@ Designed with a calming, minimalist aesthetic, GratiVibe will help users focus a
   
 - will store the user feelings and show the user his analysis.
 
+- may add comments in the mental health blog so the users can comments after reading the article.
 ---
 
 Enjoy!
