@@ -15,8 +15,8 @@
 
         /* Style the body */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: serif, sans-serif;
+            background-color: beige;
         }
 
         /* Navigation bar styling */
@@ -61,6 +61,14 @@
             width: 100%;
         }
 
+        h1 {
+            color: #cc16a5;
+            font-family: sans-serif;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+      
         th, td {
             border: 1px solid #ccc;
             padding: 10px;
@@ -70,14 +78,53 @@
         .submit-button {
             padding: 10px 20px;
             margin-top: 20px;
-            background-color: #4CAF50;
+            background-color: pink;
             color: white;
             border: none;
             cursor: pointer;
         }
 
         .submit-button:hover {
-            background-color: #45a049;
+            background-color: #ff69b4; /* Slightly darker pink for hover effect */
+        }
+
+        .record-feelings-container {
+            display: flex;
+            align-items: center;
+            position: absolute; /* Position the container relative to the page */
+            right: 20px; /* Move the container to the right side of the page */
+        }
+
+        /* Record Feelings Button */
+        .record-feelings-button {
+            display: flex;
+            align-items: center;
+            background-color: #40E0D0; /* Light turquoise color */
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-family: serif;
+            color: #333;
+            font-size: 16px;
+            padding-left: 50px; /* Add space to the left for the circle */
+        }
+
+        /* Circle with Image - Positioned outside the container to the left */
+        .icon-circle {
+            position: absolute;  /* Position the circle absolutely */
+            left: -45px; /* Move the circle outside the container to the left */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #40E0D0;
+            border-radius: 50%;
+        }
+
+        /* Image inside the circle */
+        .icon-image {
+            width: 24px;
+            height: 24px;
         }
     </style>
 </head>
@@ -92,25 +139,22 @@
         <a href="moodtracker.html" class="active">Mood Tracker</a>
     </div>
 
-    <h1 style="text-align: center; margin-bottom: 20px;">Mood Tracking Calendar</h1>
+        <h1 style="text-align: center; margin-bottom: 20px;">Mood Tracking Calendar</h1>
 
-    <!-- Month Selection -->
-    <div style="text-align: center; margin-bottom: 20px;">
-        <label for="month">Select Month:</label>
-        <select id="month" name="month">
-            <option value="January">January</option>
-            <option value="February">February</option>
-            <option value="March">March</option>
-            <option value="April">April</option>
-            <option value="May">May</option>
-            <option value="June">June</option>
-            <option value="July">July</option>
-            <option value="August">August</option>
-            <option value="September">September</option>
-            <option value="October">October</option>
-            <option value="November">November</option>
-            <option value="December">December</option>
-        </select>
+    <!-- Week Selection and Record Feelings Button -->
+    <div style="display: flex; align-items: center; margin-bottom: 20px; font-family: sans-serif;">
+        <label for="week">Select Week:</label>
+        <input type="week" id="week" name="week" style="margin-left: 10px;">
+
+        <!-- Record Feelings Button -->
+        <div class="record-feelings-container" style="margin-left: 20px;">
+            <div class="record-feelings-button">
+                <span>Record your feelings</span>
+                <div class="icon-circle">
+                    <img src="https://img.freepik.com/premium-vector/opened-book-diary-textbook-symbol-icon_8071-38658.jpg?w=1060" alt="Notebook Icon" class="icon-image">
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Mood Tracking Form -->
