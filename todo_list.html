@@ -14,8 +14,8 @@
 
         /* Style the body */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: serif, sans-serif;
+            background-color: rgb(238, 227, 252);
             line-height: 1.6;
         }
 
@@ -57,9 +57,41 @@
 
         /* Page content */
         .page-content {
+            text-align: left;
+            margin: 30px 20px;
+            font-size: 18px;
+        }
+
+          /* todo list */
+          .todo-list {
             text-align: center;
             margin: 30px 20px;
         }
+
+        .page-content ul li {
+    padding: 5px 0; /* Adds padding between each category item */
+}
+
+        .cursive {
+            font-family: "Dancing Script", cursive;
+        }
+
+        .NewTask {
+            padding: 8px;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        #taskDescription {
+    width: 50%;
+    height: 100px; 
+    padding: 8px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    overflow: auto; /* Enables scrollbars for overflow content */
+    resize: both; 
+}
+
 
         /* Table styling */
         table {
@@ -74,7 +106,8 @@
         }
 
         th {
-            background-color: #f2f2f2;
+            background-color: rgba(182, 129, 233, 0.918);
+            color: white;
         }
 
         tr:nth-child(even) {
@@ -84,10 +117,11 @@
         /* Form styling */
         form {
             margin-bottom: 20px;
+            padding: 8px;
         }
 
         input[type="text"], textarea {
-            width: 100%;
+            width: 50%;
             padding: 8px;
             margin: 8px 0;
             box-sizing: border-box;
@@ -95,7 +129,7 @@
 
         input[type="submit"], button {
             padding: 10px 20px;
-            background-color: #4CAF50;
+            background-color: rgb(250, 159, 220);
             color: white;
             border: none;
             cursor: pointer;
@@ -104,8 +138,9 @@
         }
 
         input[type="submit"]:hover, button:hover {
-            background-color: #45a049;
+            background-color: #ff69b4;
         }
+
     </style>
 </head>
 <body>
@@ -130,8 +165,11 @@
             <li>Entertainment</li>
             <li>Family</li>
         </ul>
+    </div>
 
-        <h3>Task List:</h3>
+
+        <div class="todo-list">
+        <h2>Task List:</h2>
         <table id="taskTable" border="1">
             <tr>
                 <th>Title</th>
@@ -144,9 +182,14 @@
                 <td><label><input type="checkbox"> Done</label></td>
             </tr>
         </table>
+    </div>
 
-        <label><input type="checkbox"> Hide done task</label>
 
+        <label class="cursive">
+            <input type="checkbox"> Hide done task
+        </label>
+
+        <div class="NewTask">
         <h3>Add a New Task:</h3>
         <form action="#">
             <label for="taskTitle">Title:</label><br>
