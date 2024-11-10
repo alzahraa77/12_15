@@ -1,0 +1,143 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Navigation bar styling */
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+    padding: 10px 0;
+}
+
+    /* Navigation links */
+    .navbar a {
+        color: white;
+        padding: 14px 20px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 18px;
+        transition: background-color 0.3s;
+    }
+
+        /* Hover effects on links */
+        .navbar a:hover {
+            background-color: #575757;
+        }
+
+        /* Active link style */
+        .navbar a.active {
+            background-color: #4CAF50;
+        }
+
+/* Center the title */
+h1 {
+    text-align: center; /* Center the title */
+    margin-top: 20px; /* Add some margin for spacing */
+    margin-bottom: 20px; /* Add some margin for spacing */
+}
+
+/* Basic styles for the form */
+form {
+    text-align: center;
+    margin: 20px;
+}
+
+/* Style for the table */
+table {
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+/* Style for the textarea */
+textarea {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 10px;
+}
+
+input[type="submit"],
+input[type="reset"] {
+    background-color: darkgreen;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+    input[type="submit"]:hover,
+    input[type="reset"]:hover {
+        background-color: forestgreen;
+    }
+
+#diaryEntry {
+    width: 100%;
+    max-width: 600px;
+    height: 500px;
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    resize: vertical;
+    background-color: white;
+    color: black;
+}
+
+    #diaryEntry:focus {
+        border-color: forestgreen;
+        outline: none;
+        box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    }
+
+input[type="text"],
+input[type="date"] {
+    width: 100%;
+    max-width: 250px;
+    padding: 10px;
+    margin: 5px 0;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: black;
+}
+
+    input[type="text"]:focus,
+    input[type="date"]:focus {
+        border-color: forestgreen;
+        outline: none;
+        box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    }
+
+h1 {
+    text-align: center;
+    font-size: 36px;
+    color: forestgreen;
+    font-family: 'Georgia', serif;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.form-container label {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+    font-family: Arial, sans-serif;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
