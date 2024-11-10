@@ -5,128 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mood Tracker</title>
-    <style>
-        /* Basic reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <link rel="stylesheet" href="tracker.css" >
 
-        /* Style the body */
-        body {
-            font-family: serif, sans-serif;
-            background-color: beige;
-        }
-
-        /* Navigation bar styling */
-        .navbar {
-            display: flex;
-            justify-content: center;
-            background-color: #333;
-            padding: 10px 0;
-        }
-
-        /* Navigation links */
-        .navbar a {
-            color: white;
-            padding: 14px 20px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 18px;
-            transition: background-color 0.3s;
-        }
-
-        /* Hover effects on links */
-        .navbar a:hover {
-            background-color: #575757;
-        }
-
-        /* Active link style */
-        .navbar a.active {
-            background-color: #4CAF50;
-        }
-
-        /* Content for each page */
-        .page-content {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        /* Mood Tracker Form styling */
-        table {
-            margin: 0 auto;
-            text-align: center;
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        h1 {
-            color: #cc16a5;
-            font-family: sans-serif;
-            text-align: center;
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-      
-        th, td {
-            border: 1px solid #ccc;
-            padding: 10px;
-        }
-
-        /* Submit button styling */
-        .submit-button {
-            padding: 10px 20px;
-            margin-top: 20px;
-            background-color: pink;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
-        .submit-button:hover {
-            background-color: #ff69b4; /* Slightly darker pink for hover effect */
-        }
-
-        .record-feelings-container {
-            display: flex;
-            align-items: center;
-            position: absolute; /* Position the container relative to the page */
-            right: 20px; /* Move the container to the right side of the page */
-        }
-
-        /* Record Feelings Button */
-        .record-feelings-button {
-            display: flex;
-            align-items: center;
-            background-color: #40E0D0; /* Light turquoise color */
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-family: serif;
-            color: #333;
-            font-size: 16px;
-            padding-left: 50px; /* Add space to the left for the circle */
-        }
-
-        /* Circle with Image - Positioned outside the container to the left */
-        .icon-circle {
-            position: absolute;  /* Position the circle absolutely */
-            left: -45px; /* Move the circle outside the container to the left */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: #40E0D0;
-            border-radius: 50%;
-        }
-
-        /* Image inside the circle */
-        .icon-image {
-            width: 24px;
-            height: 24px;
-        }
-    </style>
 </head>
 
 <body>
@@ -139,17 +19,17 @@
         <a href="moodtracker.html" class="active">Mood Tracker</a>
     </div>
 
-    <h1 style="text-align: center; margin-bottom: 20px;">Mood Tracking Calendar</h1>
+      <h1 style="text-align: center; margin-bottom: 20px;">Mood Tracking Calendar</h1>
 
     <!-- Week Selection and Record Feelings Button -->
     <div style="display: flex; align-items: center; margin-bottom: 20px; font-family: sans-serif;">
-        <label for="week">Select Week:</label>
+        <label style=" color: #40E0D0" for="week">Select Week:</label>
         <input type="week" id="week" name="week" style="margin-left: 10px;">
 
         <!-- Record Feelings Button -->
-        <div class="record-feelings-container" style="margin-left: 20px;">
-            <div class="record-feelings-button">
-                <span>Record your feelings</span>
+        <div class="feelings-container" style="margin-left: 20px;">
+            <div class="feelings-button">
+                <span>How are you feeling today?</span>
                 <div class="icon-circle">
                     <img src="https://img.freepik.com/premium-vector/opened-book-diary-textbook-symbol-icon_8071-38658.jpg?w=1060" alt="Notebook Icon" class="icon-image">
                 </div>
@@ -173,8 +53,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th>Feeling Happy</th>
+                     <tr>
+                    <th>Feeling Happy <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Smiley.svg/1280px-Smiley.svg.png" width="20" height="20"></th>
                     <td><input type="checkbox" name="monday_feeling_happy"></td>
                     <td><input type="checkbox" name="tuesday_feeling_happy"></td>
                     <td><input type="checkbox" name="wednesday_feeling_happy"></td>
@@ -182,9 +62,10 @@
                     <td><input type="checkbox" name="friday_feeling_happy"></td>
                     <td><input type="checkbox" name="saturday_feeling_happy"></td>
                     <td><input type="checkbox" name="sunday_feeling_happy"></td>
-                </tr>
+                    </tr>
+
                 <tr>
-                    <th>Feeling Anxious</th>
+                    <th>Feeling Anxious<img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Twemoji_1f61f.svg" width="20" height="20"></th>
                     <td><input type="checkbox" name="monday_feeling_anxious"></td>
                     <td><input type="checkbox" name="tuesday_feeling_anxious"></td>
                     <td><input type="checkbox" name="wednesday_feeling_anxious"></td>
@@ -194,7 +75,7 @@
                     <td><input type="checkbox" name="sunday_feeling_anxious"></td>
                 </tr>
                 <tr>
-                    <th>Feeling Depressed</th>
+                    <th>Feeling Depressed<img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Emojione_1F62D.svg" width="20" height="20"></th>
                     <td><input type="checkbox" name="monday_feeling_depressed"></td>
                     <td><input type="checkbox" name="tuesday_feeling_depressed"></td>
                     <td><input type="checkbox" name="wednesday_feeling_depressed"></td>
@@ -204,7 +85,7 @@
                     <td><input type="checkbox" name="sunday_feeling_depressed"></td>
                 </tr>
                 <tr>
-                    <th>Feeling Angry</th>
+                    <th>Feeling Angry<img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Emoji_u1f620.svg" width="20" height="20"></th>
                     <td><input type="checkbox" name="monday_feeling_angry"></td>
                     <td><input type="checkbox" name="tuesday_feeling_angry"></td>
                     <td><input type="checkbox" name="wednesday_feeling_angry"></td>
@@ -214,7 +95,7 @@
                     <td><input type="checkbox" name="sunday_feeling_angry"></td>
                 </tr>
                 <tr>
-                    <th>Feeling Sad</th>
+                    <th>Feeling Sad<img src="https://upload.wikimedia.org/wikipedia/commons/0/06/Face-sad.svg" width="20" height="20"></th>
                     <td><input type="checkbox" name="monday_feeling_sad"></td>
                     <td><input type="checkbox" name="tuesday_feeling_sad"></td>
                     <td><input type="checkbox" name="wednesday_feeling_sad"></td>
@@ -224,7 +105,7 @@
                     <td><input type="checkbox" name="sunday_feeling_sad"></td>
                 </tr>
                 <tr>
-                    <th>Have Insomnia</th>
+                    <th>Have Insomnia<img src="https://i.redd.it/38kaz3nutvxd1.png" width="20" height="20"></th>                </th>
                     <td><input type="checkbox" name="monday_have_insomnia"></td>
                     <td><input type="checkbox" name="tuesday_have_insomnia"></td>
                     <td><input type="checkbox" name="wednesday_have_insomnia"></td>
@@ -234,7 +115,7 @@
                     <td><input type="checkbox" name="sunday_have_insomnia"></td>
                 </tr>
                 <tr>
-                    <th>Feeling Stressed</th>
+                    <th>Feeling Stressed<img src="https://banner2.cleanpng.com/20180405/erw/avgiije4k.webp" width="20" height="20"></th></th>
                     <td><input type="checkbox" name="monday_feeling_stressed"></td>
                     <td><input type="checkbox" name="tuesday_feeling_stressed"></td>
                     <td><input type="checkbox" name="wednesday_feeling_stressed"></td>
@@ -248,7 +129,7 @@
 
         <br>
         <div style="text-align: center;">
-            <button class="submit-button" type="submit">Record Your Feelings</button>
+            <button class="submit-button" type="submit">Submit</button>
         </div>
     </form>
 </body>
