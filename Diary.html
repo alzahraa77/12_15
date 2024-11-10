@@ -3,88 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diary</title>
-    <style>
-        /* Basic reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Style the body */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-        }
-
-        /* Navigation bar styling */
-        .navbar {
-            display: flex;
-            justify-content: center;
-            background-color: #333;
-            padding: 10px 0;
-        }
-
-        /* Navigation links */
-        .navbar a {
-            color: white;
-            padding: 14px 20px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 18px;
-            transition: background-color 0.3s;
-        }
-
-        /* Hover effects on links */
-        .navbar a:hover {
-            background-color: #575757;
-        }
-
-        /* Active link style */
-        .navbar a.active {
-            background-color: #4CAF50;
-        }
-
-        /* Center the title */
-        h1 {
-            text-align: center; /* Center the title */
-            margin-top: 20px;  /* Add some margin for spacing */
-            margin-bottom: 20px; /* Add some margin for spacing */
-        }
-
-        /* Basic styles for the form */
-        form {
-            text-align: center;
-            margin: 20px;
-        }
-
-        /* Style for the table */
-        table {
-            margin: 0 auto;
-            margin-bottom: 20px;
-        }
-
-        /* Style for the textarea */
-        textarea {
-            width: 100%;
-            max-width: 600px;
-            margin-bottom: 10px;
-        }
-    </style>
+    <title>GratiVibe - Diary</title>
+    <link rel="stylesheet" href="Diarystyle.css" >
 </head>
 <body>
     <!-- Navigation Bar -->
-    <div class="navbar">
-        <a href="index.html">Home</a>
-        <a href="mentalheath_blog.html">Mental Health Blog</a>
-        <a href="Diary.html" class="active">Diary</a>
-        <a href="todo_list.html">To-Do List</a>
-        <a href="moodtracker.html">Mood Tracker</a>
-    </div>
-
+    
+        <div class="navbar">
+            <a href="index.html">Home</a>
+            <a href="mentalheath_blog.html">Mental Health Blog</a>
+            <a href="Diary.html" class="active">Diary</a>
+            <a href="todo_list.html">To-Do List</a>
+            <a href="moodtracker.html">Mood Tracker</a>
+        </div>
+  
     <h1>My Diary</h1>
-    <form>
+    <form class=" form-container">
         <label>Share what brought you joy today:</label><br><br>
         
         <table>
@@ -106,7 +40,7 @@
 
         <br>
 
-        <textarea id="diaryEntry" name="diaryEntry" rows="10" placeholder="Dear Diary, "></textarea><br><br>
+        <textarea class ="diaryEntry" id="diaryEntry" name="diaryEntry" rows="10" placeholder="Dear Diary, "></textarea><br><br>
         <input type="submit" value="Save">
         <input type="reset" value="Clear">
     </form>
