@@ -4,204 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List - GratiVibe</title>
-    <style>
-        /* Basic reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Style the body */
-        body {
-            font-family: serif, sans-serif;
-            background-color: rgb(238, 227, 252);
-            line-height: 1.6;
-        }
-
-        /* Navigation bar styling */
-        .navbar {
-            display: flex;
-            justify-content: center;
-            background-color: #333;
-            padding: 10px 0;
-        }
-
-        .navbar a {
-            color: white;
-            padding: 14px 20px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 18px;
-            transition: background-color 0.3s;
-        }
-
-        .navbar a:hover {
-            background-color: #575757;
-        }
-
-        .navbar a.active {
-            background-color: #4CAF50;
-        }
-
-        @media (max-width: 600px) {
-            .navbar {
-                flex-direction: column;
-            }
-
-            .navbar a {
-                padding: 10px;
-                font-size: 16px;
-            }
-        }
-
-        /* Page content */
-        .page-content {
-            text-align: left;
-            margin: 30px 20px;
-            font-size: 18px;
-        }
-
-          /* todo list */
-          .todo-list {
-            text-align: center;
-            margin: 30px 20px;
-        }
-
-        .page-content ul li {
-    padding: 5px 0; /* Adds padding between each category item */
-}
-
-        .cursive {
-            font-family: "Dancing Script", cursive;
-        }
-
-        .NewTask {
-            padding: 8px;
-            margin-top: 20px;
-            font-size: 18px;
-        }
-
-        #taskDescription {
-    width: 50%;
-    height: 100px; 
-    padding: 8px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    overflow: auto; /* Enables scrollbars for overflow content */
-    resize: both; 
-}
-
-
-        /* Table styling */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-
-        table, th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-        }
-
-        th {
-            background-color: rgba(182, 129, 233, 0.918);
-            color: white;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-
-        /* Form styling */
-        form {
-            margin-bottom: 20px;
-            padding: 8px;
-        }
-
-        input[type="text"], textarea {
-            width: 50%;
-            padding: 8px;
-            margin: 8px 0;
-            box-sizing: border-box;
-        }
-
-        input[type="submit"], button {
-            padding: 10px 20px;
-            background-color: rgba(96, 204, 119, 0.897);
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        input[type="submit"]:hover, button:hover {
-            background-color: rgba(182, 129, 233, 0.918);
-        }
-
-    </style>
+    <link rel="stylesheet" href="todo.css">
 </head>
 <body>
+    <div class="main-container">
+        <!-- Navigation bar -->
+        <div class="navbar">
+            <a href="index.html">Home</a>
+            <a href="mentalheath_blog.html">Mental Health Blog</a>
+            <a href="Diary.html">Diary</a>
+            <a href="todo_list.html" class="active">To-Do List</a>
+            <a href="moodtracker.html">Mood Tracker</a>
+        </div>
 
-    <!-- Navigation bar -->
-    <div class="navbar">
-        <a href="index.html">Home</a>
-        <a href="mentalheath_blog.html">Mental Health Blog</a>
-        <a href="Diary.html">Diary</a>
-        <a href="todo_list.html"class="active">To-Do List</a>
-        <a href="moodtracker.html">Mood Tracker</a>
-    </div>
+        <!-- Page content -->
+        <div class="page-content">
+            <h1>TODO</h1>
 
-    <!-- Page content -->
-    <div class="page-content">
-        <h1>TODO</h1>
+            <h3>Categories:</h3>
+            <ul>
+                <li>Work</li>
+                <li>Study</li>
+                <li>Entertainment</li>
+                <li>Family</li>
+            </ul>
+        </div>
 
-        <h3>Categories:</h3>
-        <ul>
-            <li>Work</li>
-            <li>Study</li>
-            <li>Entertainment</li>
-            <li>Family</li>
-        </ul>
-    </div>
-
-
+        <!-- Task list -->
         <div class="todo-list">
-        <h2>Task List:</h2>
-        <table id="taskTable" border="1">
-            <tr>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Status</th>
-            </tr>
-            <tr>
-                <td>The first task title</td>
-                <td>Task Description.</td>
-                <td><label><input type="checkbox"> Done</label></td>
-            </tr>
-        </table>
-    </div>
+            <h2>Task List:</h2>
+            <table id="taskTable" border="1">
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>The first task title</td>
+                    <td>Task Description.</td>
+                    <td><label><input type="checkbox"> Done</label></td>
+                </tr>
+            </table>
+        </div>
 
-
-        <label class="cursive">
-            <input type="checkbox"> Hide done task
+        <!-- Hide done task -->
+        <label class="cursive" style="display: flex; align-items: center; justify-content: center;">
+            <input type="checkbox"> Hide done tasks
         </label>
+        
 
+        <!-- New Task form -->
         <div class="NewTask">
-        <h3>Add a New Task:</h3>
-        <form action="#">
-            <label for="taskTitle">Title:</label><br>
-            <input type="text" id="taskTitle" name="taskTitle"><br><br>
+            <h3>Add a New Task:</h3>
+            <form action="#">
+                <label for="taskTitle">Title:</label><br>
+                <input type="text" id="taskTitle" name="taskTitle"><br><br>
 
-            <label for="taskDescription">Description:</label><br>
-            <textarea id="taskDescription" name="taskDescription" rows="4" cols="50"></textarea><br><br>
+                <label for="taskDescription">Description:</label><br>
+                <textarea id="taskDescription" name="taskDescription" rows="4" cols="50"></textarea><br><br>
 
-            <input type="submit" value="Add Task">
-            <button type="button">Cancel</button>
-        </form>
+                <input type="submit" value="Add Task">
+                <button type="button">Cancel</button>
+            </form>
+        </div>
     </div>
-
 </body>
 </html>
