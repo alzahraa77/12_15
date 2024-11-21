@@ -3,20 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do List</title>
+    <title>To-Do List - GratiVibe</title>
+    <link rel="stylesheet" href="CSS/todo.css">
     <style>
-        /* Basic reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Style the body */
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
-            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         /* Navigation bar styling */
@@ -25,9 +23,9 @@
             justify-content: center;
             background-color: #333;
             padding: 10px 0;
+            width: 100%;
         }
 
-        /* Navigation links */
         .navbar a {
             color: white;
             padding: 14px 20px;
@@ -37,41 +35,219 @@
             transition: background-color 0.3s;
         }
 
-        /* Hover effects on links */
         .navbar a:hover {
             background-color: #575757;
         }
 
-        /* Active link style */
         .navbar a.active {
             background-color: #4CAF50;
         }
 
-        /* Main content area */
-        .main-content {
-            max-width: 800px;
-            margin: 20px auto;
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+            }
+
+            .navbar a {
+                padding: 10px;
+                font-size: 16px;
+            }
+        }
+
+        /* Page layout */
+        .main-container {
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+            max-width: 1200px;
+            margin: 50px auto;
+        }
+
+        .page-content {
+            flex: 1;
+            margin-right: 20px; 
+        }
+
+
+        .todo-list {
+            margin-top: 40px;
+            margin-left: 100px;  
+            margin-bottom: 20px;
+            flex: 3;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
+        }
+
+        /* Task list table */
+        .todo-list table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .todo-list table th, .todo-list table td {
+            border: 1px solid #ddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        .todo-list table th {
+            background-color: rgba(14, 82, 5, 0.918);
+            color: white;
+        }
+
+        /* Form styling */
+        .NewTask {
+            margin-top: 100px;
+        }
+
+        .NewTask input[type="text"], .NewTask textarea {
+            width: 80%;
+            max-width: 400px;
+            padding: 8px;
+            margin: 10px 0; 
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .NewTask input[type="submit"], .NewTask button {
+            background-color: rgba(96, 204, 119, 0.897);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .NewTask input[type="submit"]:hover, .NewTask button:hover {
+            background-color: rgba(0, 41, 18, 0.918);
+        }
+
+        /* Checkbox styling */
+        .checkbox-container {
+            display: flex;
+            justify-content: center;
+            margin: 10px 0;
+        }
+
+        .checkbox-container input[type="checkbox"] {
+            margin-right: 5px;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
     <div class="navbar">
-        <a href="home.html">Home</a>
-        <a href="mentalheath_blog.html">Mental health Blog</a>
+        <a href="index.html">Home</a>
+        <a href="mentalheath_blog.html">Mental Health Blog</a>
         <a href="Diary.html">Diary</a>
         <a href="todo_list.html" class="active">To-Do List</a>
         <a href="moodtracker.html">Mood Tracker</a>
     </div>
 
-    <div class="main-content">
-        <h1>To-Do List Page</h1>
-        <p>This is where the To-Do List functionality will be.</p>
+    <div class="main-container">
+        <div class="page-content">
+            <h1>TODO</h1>
+
+            <h3>Categories:</h3>
+            <ul>
+                <li>Work</li>
+                <li>Study</li>
+                <li>Entertainment</li>
+                <li>Family</li>
+            </ul>
+
+            <div class="NewTask">
+                <h3>Add a New Task:</h3>
+                <form onsubmit="addTask(event)">
+                    <label for="taskTitle">Title:</label><br>
+                    <input type="text" id="taskTitle" name="taskTitle"><br>
+
+                    <label for="taskDescription">Description:</label><br>
+                    <textarea id="taskDescription" name="taskDescription" rows="4"></textarea><br>
+
+                    <input type="submit" value="Add Task">
+                    <button type="button" onclick="cancelTask()">Cancel</button>
+                </form>
+            </div>
+        </div>
+
+
+        <div class="todo-list">
+            <h2>Task List:</h2>
+            <table id="taskTable">
+                <tr>  
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </table>
+          
+
+            <label class="checkbox-container">
+                <input type="checkbox" onclick="toggleDoneTasks()"> Hide done tasks
+            </label>
+        </div>
     </div>
+
+
+    <script>
+        function addTask(event) {
+            event.preventDefault();
+            const title = document.getElementById('taskTitle').value.trim();
+            const description = document.getElementById('taskDescription').value.trim();
+
+            if (!title || !description) {
+                alert('Please fill out both fields.');
+                return;
+            }
+
+            const table = document.getElementById('taskTable');
+            const row = table.insertRow();
+
+            const titleCell = row.insertCell(0);
+            const descriptionCell = row.insertCell(1);
+            const statusCell = row.insertCell(2);
+            const actionsCell = row.insertCell(3);
+
+            titleCell.textContent = title;
+            descriptionCell.textContent = description;
+            statusCell.innerHTML = '<label><input type="checkbox" onclick="toggleRowStatus(this)"> Done</label>';
+            actionsCell.innerHTML = '<button onclick="deleteRow(this)">Delete</button>';
+
+            document.getElementById('taskTitle').value = '';
+            document.getElementById('taskDescription').value = '';
+        }
+
+        function deleteRow(button) {
+            const row = button.closest('tr');
+            row.remove();
+        }
+
+        function toggleRowStatus(checkbox) {
+            const row = checkbox.closest('tr');
+            row.style.textDecoration = checkbox.checked ? 'line-through' : 'none';
+            row.style.opacity = checkbox.checked ? '0.6' : '1';
+        }
+
+        function toggleDoneTasks() {
+            const checkboxes = document.querySelectorAll('#taskTable input[type="checkbox"]');
+            const hideDone = document.querySelector('input[type="checkbox"]').checked;
+
+            checkboxes.forEach((checkbox) => {
+                const row = checkbox.closest('tr');
+                row.style.display = hideDone && checkbox.checked ? 'none' : '';
+            });
+        }
+
+        function cancelTask() {
+            document.getElementById('taskTitle').value = '';
+            document.getElementById('taskDescription').value = '';
+        }
+    </script>
 </body>
 </html>
