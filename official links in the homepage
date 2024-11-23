@@ -1,0 +1,37 @@
+<!--add this to the bottom of the homepage-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emirates Health Services</title>
+</head>
+<body>
+<ul>
+
+
+    <h3>Check out these official links</h3>
+    <p>
+    <li>
+        Learn more about the services offered by Emirates Health Services for mental health by clicking the link below: </li></p>
+    
+    <a href="https://www.ehs.gov.ae/en/services/services-directory/mental-health-services" target="_blank">
+        Emirates Health Services for Mental Health
+    </a>
+    <p>
+      <li>
+        Learn more about the services offered by Abu dhabi mental health center by clicking the link below: </li>
+    </p>
+    <a href="https://www.adphc.gov.ae/en/Public-Health-Programs/Mental-Health">
+        Abu dhabi mental health center
+    </a>
+     <p>
+      <li>
+        Learn more about the services offered by Cleveland Clinic Abu dhabi for coping with the stigma of mental illness by clicking the link below: </li>
+    </p>
+    <a href="https://www.clevelandclinicabudhabi.ae/en/health-hub/health-resource/diseases-and-conditions/coping-with-the-stigma-of-mental-illness">
+        Coping with the Stigma of Mental Illness
+    </a>
+</ul>
+</body>
+</html>
