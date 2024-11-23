@@ -3,76 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diary</title>
-    <link rel="stylesheet" href="styles.css" >
-    <style>
-        /* Basic reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <title>GratiVibe - Diary</title>
+    <link rel="stylesheet" href="CSS/global.css">
+    <link rel="stylesheet" href="CSS/Diarystyle.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Create a display area for diary entries
+            const diaryDisplay = document.createElement('div');
+            diaryDisplay.id = 'diaryDisplay';
+            document.body.appendChild(diaryDisplay);
 
-        /* Style the body */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-        }
-
-        /* Navigation bar styling */
-        .navbar {
-            display: flex;
-            justify-content: center;
-            background-color: #333;
-            padding: 10px 0;
-        }
-
-            /* Navigation links */
-            .navbar a {
-                color: white;
-                padding: 14px 20px;
-                text-align: center;
-                text-decoration: none;
-                font-size: 18px;
-                transition: background-color 0.3s;
+            // Function to load diary entries
+            function loadEntries() {
+                const entries = JSON.parse(localStorage.getItem('diaries')) || [];
+                diaryDisplay.innerHTML = '<h2>Previous Diaries</h2>';
+                for (let i = 0; i < entries.length; i++) {
+                    diaryDisplay.innerHTML += `
+                        <div>
+                            <h3>${entries[i].title}</h3>
+                            <p><strong>Date:</strong> ${entries[i].date}</p>
+                            <p>${entries[i].content}</p>
+                            <hr>
+                        </div>
+                    `;
+                }
             }
 
-                /* Hover effects on links */
-                .navbar a:hover {
-                    background-color: #575757;
+            // Function to save a diary entry
+            document.querySelector('.form-container').onsubmit = function (e) {
+                e.preventDefault();
+                const title = document.querySelector('input[type="text"]').value;
+                const date = document.querySelector('input[type="date"]').value;
+                const content = document.getElementById('diaryEntry').value;
+
+                if (title && date && content) {
+                    const entries = JSON.parse(localStorage.getItem('diaries')) || [];
+                    entries.push({ title: title, date: date, content: content });
+                    localStorage.setItem('diaries', JSON.stringify(entries));
+                    loadEntries();
+                    e.target.reset();
+                } else {
+                    alert('Please fill out all fields!');
                 }
+            };
 
-                /* Active link style */
-                .navbar a.active {
-                    background-color: #4CAF50;
-                }
+            // Load entries when the page is ready
+            loadEntries();
+        });
+    </script>
+s
 
-        /* Center the title */
-        h1 {
-            text-align: center; /* Center the title */
-            margin-top: 20px; /* Add some margin for spacing */
-            margin-bottom: 20px; /* Add some margin for spacing */
-        }
-
-        /* Basic styles for the form */
-        form {
-            text-align: center;
-            margin: 20px;
-        }
-
-        /* Style for the table */
-        table {
-            margin: 0 auto;
-            margin-bottom: 20px;
-        }
-
-        /* Style for the textarea */
-        textarea {
-            width: 100%;
-            max-width: 600px;
-            margin-bottom: 10px;
-        }
-    </style>
 </head>
 <body>
     <!-- Navigation Bar -->
