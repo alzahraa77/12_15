@@ -252,6 +252,29 @@
             <button class="submit-button" type="submit">Submit</button>
         </div>
     </form>
+     <script>
+        // Function to generate a random color
+        function getRandomColor() {
+            const letters = "0123456789ABCDEF";
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        // Change button colors on page load
+        window.onload = function () {
+            const feelingsButton = document.querySelector(".feelings-button");
+            const iconCircle = document.querySelector(".icon-circle");
+
+            const buttonColor = getRandomColor();
+            const circleColor = getRandomColor();
+
+            if (feelingsButton) feelingsButton.style.backgroundColor = buttonColor;
+            if (iconCircle) iconCircle.style.backgroundColor = circleColor;
+        };
+    </script>
 </body>
 
 </html>
