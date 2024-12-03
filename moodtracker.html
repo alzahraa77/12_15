@@ -15,7 +15,7 @@
 
         /* Style the body */
         body {
-            font-family: serif, sans-serif;
+            font-family: Arial, sans-serif;
             background-color: beige;
         }
 
@@ -47,37 +47,34 @@
             background-color: #4CAF50;
         }
 
-        /* Content for each page */
-        .page-content {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        /* Mood Tracker Form styling */
-        table {
-            margin: 0 auto;
-            text-align: center;
-            border-collapse: collapse;
-            width: 100%;
-        }
-
         h1 {
             color: #63c97e;
-            font-family: sans-serif;
             text-align: center;
             margin-top: 20px;
             margin-bottom: 20px;
         }
-      
-        th, td {
+
+        th,
+        td {
             border: 1px solid #ccc;
-            padding: 10px;
+            padding: 0;
+            height: 60px;
+            width: 100px;
+            text-align: center;
+        }
+
+        table {
+            margin: 0 auto;
+            margin-top: 150px; /* Push table down to avoid overlapping */
+            border-collapse: collapse;
+            width: 100%;
         }
 
         /* Submit button styling */
         .submit-button {
             padding: 10px 20px;
             margin-top: 20px;
+            margin-bottom: 40px;
             background-color: #a4ebb7;
             color: white;
             border: none;
@@ -85,174 +82,111 @@
         }
 
         .submit-button:hover {
-            background-color: #448755; 
+            background-color: #448755;
         }
 
-        .feelings-container {
+        .left-controls {
+            position: absolute;
+             margin-top: 20px;
+            top: 120px; /* Position at a consistent height */
+            left: 20px;
             display: flex;
-            align-items: center;
-            position: absolute; /* Position the container relative to the page */
-            right: 20px; /* Move the container to the right side of the page */
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            font-family: Arial, sans-serif;
+        }
+
+        .left-controls label {
+            font-size: 16px;
+            color: #40E0D0; /* Match the "Select Week" label color */
+        }
+
+        .left-controls select,
+        .left-controls input {
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
         }
 
         /* Record Feelings Button */
+        .feelings-container {
+           margin-top: 50px;
+            position: absolute;
+            top: 120px;
+            right: 20px;
+        }
+
         .feelings-button {
             display: flex;
             align-items: center;
-            background-color: #40E0D0; /* Light turquoise color */
+            background-color: #d7cc78;
             padding: 10px 20px;
             border-radius: 30px;
-            font-family: serif;
+            font-family: Arial, sans-serif;
             color: #ffffff;
             font-size: 16px;
-            padding-left: 50px; /* Add space to the left for the circle */
+            padding-left: 50px;
         }
 
-        /* Circle with Image - Positioned outside the container to the left */
         .icon-circle {
-            position: absolute;  /* Position the circle absolutely */
-            left: -45px; /* Move the circle outside the container to the left */
+            position: absolute;
+            left: -45px;
             display: flex;
             align-items: center;
             justify-content: center;
             width: 40px;
             height: 40px;
-            background-color: #40E0D0;
+            background-color: #d7cc78;
             border-radius: 50%;
         }
 
-        /* Image inside the circle */
         .icon-image {
             width: 24px;
             height: 24px;
         }
+
+        /* Small square style */
+        .small-square {
+            width: 40px;
+            height: 40px;
+            border-radius: 9px;
+            background-color: beige;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+        }
+
+        .small-square div {
+            width: 13px;
+            height: 13px;
+            background: white;
+            border-radius: 2.50px;
+            border: 1px #767676 solid;
+        }
     </style>
-</head>
 
-<body>
-    <!-- Navigation bar -->
-    <div class="navbar">
-        <a href="index.html">Home</a>
-        <a href="mentalheath_blog.html">Mental health Blog</a>
-        <a href="Diary.html">Diary</a>
-        <a href="todo_list.html">To-Do List</a>
-        <a href="moodtracker.html" class="active">Mood Tracker</a>
-    </div>
+    <script>
+        // Function to update the table based on the selected day
+        function updateTable() {
+            const selectedDay = document.getElementById("day-of-week").value;
+            const cells = document.querySelectorAll("td[data-day]");
 
-      <h1 style="text-align: center; margin-bottom: 20px;">Mood Tracking Calendar</h1>
+            cells.forEach(function (cell) {
+                const day = cell.getAttribute("data-day");
+                if (day === selectedDay) {
+                    cell.innerHTML = '<input type="checkbox" name="' + day + '_feeling">';
+                } else {
+                    cell.innerHTML = `
+                        <div class="small-square">
+                            <div></div>
+                        </div>
+                    `;
+                }
+            });
+        }
 
-    <!-- Week Selection and Record Feelings Button -->
-    <div style="display: flex; align-items: center; margin-bottom: 20px; font-family: sans-serif;">
-        <label style=" color: #40E0D0" for="week">Select Week:</label>
-        <input type="week" id="week" name="week" style="margin-left: 10px;">
-
-        <!-- Record Feelings Button -->
-        <div class="feelings-container" style="margin-left: 20px;">
-            <div class="feelings-button">
-                <span>How are you feeling today?</span>
-                <div class="icon-circle">
-                    <img src="https://img.freepik.com/premium-vector/opened-book-diary-textbook-symbol-icon_8071-38658.jpg?w=1060" alt="Notebook Icon" class="icon-image">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Mood Tracking Form -->
-    <form action="submitted_data.html" method="GET">
-        <table>
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Monday</th>
-                    <th>Tuesday</th>
-                    <th>Wednesday</th>
-                    <th>Thursday</th>
-                    <th>Friday</th>
-                    <th>Saturday</th>
-                    <th>Sunday</th>
-                </tr>
-            </thead>
-            <tbody>
-                     <tr>
-                    <th>Feeling Happy <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Smiley.svg/1280px-Smiley.svg.png" width="20" height="20"></th>
-                    <td><input type="checkbox" name="monday_feeling_happy"></td>
-                    <td><input type="checkbox" name="tuesday_feeling_happy"></td>
-                    <td><input type="checkbox" name="wednesday_feeling_happy"></td>
-                    <td><input type="checkbox" name="thursday_feeling_happy"></td>
-                    <td><input type="checkbox" name="friday_feeling_happy"></td>
-                    <td><input type="checkbox" name="saturday_feeling_happy"></td>
-                    <td><input type="checkbox" name="sunday_feeling_happy"></td>
-                    </tr>
-
-                <tr>
-                    <th>Feeling Anxious<img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Twemoji_1f61f.svg" width="20" height="20"></th>
-                    <td><input type="checkbox" name="monday_feeling_anxious"></td>
-                    <td><input type="checkbox" name="tuesday_feeling_anxious"></td>
-                    <td><input type="checkbox" name="wednesday_feeling_anxious"></td>
-                    <td><input type="checkbox" name="thursday_feeling_anxious"></td>
-                    <td><input type="checkbox" name="friday_feeling_anxious"></td>
-                    <td><input type="checkbox" name="saturday_feeling_anxious"></td>
-                    <td><input type="checkbox" name="sunday_feeling_anxious"></td>
-                </tr>
-                <tr>
-                    <th>Feeling Depressed<img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Emojione_1F62D.svg" width="20" height="20"></th>
-                    <td><input type="checkbox" name="monday_feeling_depressed"></td>
-                    <td><input type="checkbox" name="tuesday_feeling_depressed"></td>
-                    <td><input type="checkbox" name="wednesday_feeling_depressed"></td>
-                    <td><input type="checkbox" name="thursday_feeling_depressed"></td>
-                    <td><input type="checkbox" name="friday_feeling_depressed"></td>
-                    <td><input type="checkbox" name="saturday_feeling_depressed"></td>
-                    <td><input type="checkbox" name="sunday_feeling_depressed"></td>
-                </tr>
-                <tr>
-                    <th>Feeling Angry<img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Emoji_u1f620.svg" width="20" height="20"></th>
-                    <td><input type="checkbox" name="monday_feeling_angry"></td>
-                    <td><input type="checkbox" name="tuesday_feeling_angry"></td>
-                    <td><input type="checkbox" name="wednesday_feeling_angry"></td>
-                    <td><input type="checkbox" name="thursday_feeling_angry"></td>
-                    <td><input type="checkbox" name="friday_feeling_angry"></td>
-                    <td><input type="checkbox" name="saturday_feeling_angry"></td>
-                    <td><input type="checkbox" name="sunday_feeling_angry"></td>
-                </tr>
-                <tr>
-                    <th>Feeling Sad<img src="https://upload.wikimedia.org/wikipedia/commons/0/06/Face-sad.svg" width="20" height="20"></th>
-                    <td><input type="checkbox" name="monday_feeling_sad"></td>
-                    <td><input type="checkbox" name="tuesday_feeling_sad"></td>
-                    <td><input type="checkbox" name="wednesday_feeling_sad"></td>
-                    <td><input type="checkbox" name="thursday_feeling_sad"></td>
-                    <td><input type="checkbox" name="friday_feeling_sad"></td>
-                    <td><input type="checkbox" name="saturday_feeling_sad"></td>
-                    <td><input type="checkbox" name="sunday_feeling_sad"></td>
-                </tr>
-                <tr>
-                    <th>Have Insomnia<img src="https://i.redd.it/38kaz3nutvxd1.png" width="20" height="20"></th>                </th>
-                    <td><input type="checkbox" name="monday_have_insomnia"></td>
-                    <td><input type="checkbox" name="tuesday_have_insomnia"></td>
-                    <td><input type="checkbox" name="wednesday_have_insomnia"></td>
-                    <td><input type="checkbox" name="thursday_have_insomnia"></td>
-                    <td><input type="checkbox" name="friday_have_insomnia"></td>
-                    <td><input type="checkbox" name="saturday_have_insomnia"></td>
-                    <td><input type="checkbox" name="sunday_have_insomnia"></td>
-                </tr>
-                <tr>
-                    <th>Feeling Stressed<img src="https://banner2.cleanpng.com/20180405/erw/avgiije4k.webp" width="20" height="20"></th></th>
-                    <td><input type="checkbox" name="monday_feeling_stressed"></td>
-                    <td><input type="checkbox" name="tuesday_feeling_stressed"></td>
-                    <td><input type="checkbox" name="wednesday_feeling_stressed"></td>
-                    <td><input type="checkbox" name="thursday_feeling_stressed"></td>
-                    <td><input type="checkbox" name="friday_feeling_stressed"></td>
-                    <td><input type="checkbox" name="saturday_feeling_stressed"></td>
-                    <td><input type="checkbox" name="sunday_feeling_stressed"></td>
-                </tr>
-            </tbody>
-        </table>
-
-        <br>
-        <div style="text-align: center;">
-            <button class="submit-button" type="submit">Submit</button>
-        </div>
-    </form>
-     <script>
         // Function to generate a random color
         function getRandomColor() {
             const letters = "0123456789ABCDEF";
@@ -273,8 +207,144 @@
 
             if (feelingsButton) feelingsButton.style.backgroundColor = buttonColor;
             if (iconCircle) iconCircle.style.backgroundColor = circleColor;
+
+            // Initialize table with Monday as default
+            updateTable();
         };
     </script>
+</head>
+
+<body>
+    <!-- Navigation bar -->
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="mentalheath_blog.html">Mental health Blog</a>
+        <a href="Diary.html">Diary</a>
+        <a href="todo_list.html">To-Do List</a>
+        <a href="moodtracker.html" class="active">Mood Tracker</a>
+    </div>
+
+    <h1>Mood Tracking Calendar</h1>
+
+    <!-- Left Controls: Select Week and Choose Day -->
+    <div class="left-controls">
+        <label for="week">Select Week:</label>
+        <input type="week" id="week" name="week">
+
+        <label for="day-of-week">Choose a Day:</label>
+        <select id="day-of-week" name="day-of-week" onchange="updateTable()">
+            <option value="monday">Monday</option>
+            <option value="tuesday">Tuesday</option>
+            <option value="wednesday">Wednesday</option>
+            <option value="thursday">Thursday</option>
+            <option value="friday">Friday</option>
+            <option value="saturday">Saturday</option>
+            <option value="sunday">Sunday</option>
+        </select>
+    </div>
+
+    <!-- Record Feelings Button -->
+    <div class="feelings-container">
+        <div class="feelings-button">
+            <span>How are you feeling today?</span>
+            <div class="icon-circle">
+                <img src="https://img.freepik.com/premium-vector/opened-book-diary-textbook-symbol-icon_8071-38658.jpg?w=1060" alt="Notebook Icon" class="icon-image">
+            </div>
+        </div>
+    </div>
+
+    <!-- Mood Tracking Form -->
+    <form action="submitted_data.html" method="GET">
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                    <th>Saturday</th>
+                    <th>Sunday</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Feeling Happy <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Smiley.svg/1280px-Smiley.svg.png" width="20" height="20"></th>
+                    <td data-day="monday"></td>
+                    <td data-day="tuesday"></td>
+                    <td data-day="wednesday"></td>
+                    <td data-day="thursday"></td>
+                    <td data-day="friday"></td>
+                    <td data-day="saturday"></td>
+                    <td data-day="sunday"></td>
+                </tr>
+                <tr>
+                    <th>Feeling Anxious <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Twemoji_1f61f.svg" width="20" height="20"></th>
+                    <td data-day="monday"></td>
+                    <td data-day="tuesday"></td>
+                    <td data-day="wednesday"></td>
+                    <td data-day="thursday"></td>
+                    <td data-day="friday"></td>
+                    <td data-day="saturday"></td>
+                    <td data-day="sunday"></td>
+                </tr>
+                <tr>
+                    <th>Feeling Depressed <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Emojione_1F62D.svg" width="20" height="20"></th>
+                    <td data-day="monday"></td>
+                    <td data-day="tuesday"></td>
+                    <td data-day="wednesday"></td>
+                    <td data-day="thursday"></td>
+                    <td data-day="friday"></td>
+                    <td data-day="saturday"></td>
+                    <td data-day="sunday"></td>
+                </tr>
+                <tr>
+                    <th>Feeling Angry <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Emoji_u1f620.svg" width="20" height="20"></th>
+                    <td data-day="monday"></td>
+                    <td data-day="tuesday"></td>
+                    <td data-day="wednesday"></td>
+                    <td data-day="thursday"></td>
+                    <td data-day="friday"></td>
+                    <td data-day="saturday"></td>
+                    <td data-day="sunday"></td>
+                </tr>
+                <tr>
+                    <th>Feeling Sad <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/Face-sad.svg" width="20" height="20"></th>
+                    <td data-day="monday"></td>
+                    <td data-day="tuesday"></td>
+                    <td data-day="wednesday"></td>
+                    <td data-day="thursday"></td>
+                    <td data-day="friday"></td>
+                    <td data-day="saturday"></td>
+                    <td data-day="sunday"></td>
+                </tr>
+                <tr>
+                    <th>Have Insomnia <img src="https://i.redd.it/38kaz3nutvxd1.png" width="20" height="20"></th>
+                    <td data-day="monday"></td>
+                    <td data-day="tuesday"></td>
+                    <td data-day="wednesday"></td>
+                    <td data-day="thursday"></td>
+                    <td data-day="friday"></td>
+                    <td data-day="saturday"></td>
+                    <td data-day="sunday"></td>
+                </tr>
+                <tr>
+                    <th>Feeling Stressed <img src="https://banner2.cleanpng.com/20180405/erw/avgiije4k.webp" width="20" height="20"></th>
+                    <td data-day="monday"></td>
+                    <td data-day="tuesday"></td>
+                    <td data-day="wednesday"></td>
+                    <td data-day="thursday"></td>
+                    <td data-day="friday"></td>
+                    <td data-day="saturday"></td>
+                    <td data-day="sunday"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="text-align: center; margin-top: 20px;">
+            <button class="submit-button" type="submit">Submit</button>
+        </div>
+    </form>
 </body>
 
 </html>
