@@ -168,25 +168,43 @@
     </style>
 
     <script>
-        // Function to update the table based on the selected day
-        function updateTable() {
-            const selectedDay = document.getElementById("day-of-week").value;
-            const cells = document.querySelectorAll("td[data-day]");
+       // Function to update the table based on the selected day
+function updateTable() {
+    const selectedDay = document.getElementById("day-of-week").value;
+    const cells = document.querySelectorAll("td[data-day]");
 
-            cells.forEach(function (cell) {
-                const day = cell.getAttribute("data-day");
-                if (day === selectedDay) {
-                    cell.innerHTML = '<input type="checkbox" name="' + day + '_feeling">';
-                } else {
-                    cell.innerHTML = `
-                        <div class="small-square">
-                            <div></div>
-                        </div>
-                    `;
-                }
-            });
+    cells.forEach(function (cell) {
+        const day = cell.getAttribute("data-day");
+
+        if (day === selectedDay) {
+            // Add checkbox if it's the selected day
+            cell.innerHTML = '<input type="checkbox" name="' + day + '_feeling">';
+        } else {
+            // Clear the cell's content
+            cell.innerHTML = "";
+
+            // Create the outer div
+            const outerDiv = document.createElement("div");
+            outerDiv.className = "small-square";
+
+            // Create the inner div
+            const innerDiv = document.createElement("div");
+            innerDiv.style.width = "13px";
+            innerDiv.style.height = "13px";
+            innerDiv.style.background = "white";
+            innerDiv.style.borderRadius = "2.5px";
+            innerDiv.style.border = "1px #767676 solid";
+
+            // Append the inner div to the outer div
+            outerDiv.appendChild(innerDiv);
+
+            // Append the outer div to the cell
+            cell.appendChild(outerDiv);
         }
+    });
+}
 
+        
         // Function to generate a random color
         function getRandomColor() {
             const letters = "0123456789ABCDEF";
