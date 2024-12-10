@@ -4,13 +4,267 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GratiVibe - Diary</title>
-    <link rel="stylesheet" href="CSS/global.css">
-    <link rel="stylesheet" href="CSS/Diarystyle.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: #f4f4f4;
+            line-height: 1.6;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+        }
+
+        .navbar a.active {
+            background-color: #4CAF50;
+        }
+
+        .page-content {
+            padding-top: 80px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: forestgreen;
+            margin: 20px 0;
+            font-size: 36px;
+            font-family: 'Georgia', serif;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: forestgreen;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .welcome-message {
+            color: #555;
+            font-size: 18px;
+            text-align: center;
+            margin: 20px 0;
+            font-family: 'Georgia', serif;
+        }
+
+        .diary-form {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px;
+            border: 1px solid #e0e0e0;
+            width: 90%;
+            max-width: 900px;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .input-field {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .input-field label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-family: Arial, sans-serif;
+        }
+
+        input[type="text"],
+        input[type="date"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            font-size: 18px;
+            font-family: Arial, sans-serif;
+        }
+
+        input[type="text"]:focus,
+        input[type="date"]:focus {
+            border-color: forestgreen;
+            outline: none;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+        }
+
+        textarea {
+            width: 100%;
+            height: 600px;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            font-size: 18px;
+            font-family: Arial, sans-serif;
+            resize: vertical;
+        }
+
+        textarea:focus {
+            border-color: forestgreen;
+            outline: none;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        #saveButton,
+        input[type="reset"] {
+            background-color: #448755;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            font-family: 'Arial', sans-serif;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        #saveButton:hover,
+        input[type="reset"]:hover {
+            background-color: #448755;
+            transform: scale(1.05);
+        }
+
+        #saveButton:active,
+        input[type="reset"]:active {
+            transform: scale(0.98);
+        }
+
+        #entriesDisplay {
+            width: 90%;
+            max-width: 900px;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .diary-entry {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 100%;
+        }
+
+        .diary-entry h3 {
+            color: forestgreen;
+            margin-bottom: 10px;
+            font-family: 'Georgia', serif;
+        }
+
+        .diary-entry p {
+            margin: 10px 0;
+            font-family: 'Georgia', serif;
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+            }
+            .navbar a {
+                padding: 10px;
+                font-size: 16px;
+            }
+            .input-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .button-group {
+                flex-direction: column;
+            }
+            textarea {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="mentalheath_blog.html">Mental Health Blog</a>
+        <a href="Diary.html" class="active">Diary</a>
+        <a href="todo_list.html">To-Do List</a>
+        <a href="moodtracker.html">Mood Tracker</a>
+    </nav>
+
+    <div class="page-content">
+        <h1>My Diary</h1>
+        <div class="welcome-message">Share what brought you joy today:</div>
+
+        <div class="diary-form">
+            <form id="diaryForm">
+                <div class="input-group">
+                    <div class="input-field">
+                        <label for="title">Title:</label>
+                        <input id="title" type="text" placeholder="Enter a title" required>
+                    </div>
+                    <div class="input-field">
+                        <label for="date">Date:</label>
+                        <input id="date" type="date" required>
+                    </div>
+                </div>
+
+                <textarea id="diaryEntry" placeholder="Dear Diary, " required></textarea>
+
+                <div class="button-group">
+                    <button type="button" id="saveButton">Save Entry</button>
+                    <input type="reset" value="Clear">
+                </div>
+            </form>
+        </div>
+
+        <h2>Your Diary Entries</h2>
+        <div id="entriesDisplay"></div>
+    </div>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("saveButton").addEventListener("click", function () {
-                
-
                 var title = document.getElementById("title").value;
                 var date = document.getElementById("date").value;
                 var entry = document.getElementById("diaryEntry").value;
@@ -22,45 +276,16 @@
 
                 var entryDiv = document.createElement("div");
                 entryDiv.className = "diary-entry";
-                entryDiv.innerHTML = "<h3>" + title + "</h3>" +
-                    "<p><strong>Date:</strong> " + date + "</p>" +
-                    "<p>" + entry + "</p>" + "<hr>";
-                document.getElementById("entriesDisplay").appendChild(entryDiv);
-
+                entryDiv.innerHTML = `
+                    <h3>${title}</h3>
+                    <p><strong>Date:</strong> ${date}</p>
+                    <p>${entry}</p>
+                `;
+                
+                document.getElementById("entriesDisplay").insertBefore(entryDiv, document.getElementById("entriesDisplay").firstChild);
                 document.getElementById("diaryForm").reset();
             });
         });
     </script>
-
-</head>
-<body>
-    <!-- Navigation Bar -->
-    <div class="navbar">
-        <a href="index.html">Home</a>
-        <a href="mentalheath_blog.html">Mental Health Blog</a>
-        <a href="Diary.html" class="active">Diary</a>
-        <a href="todo_list.html">To-Do List</a>
-        <a href="moodtracker.html">Mood Tracker</a>
-    </div>
-
-    <h1>My Diary</h1>
-    <form id="diaryForm" class="form-container">
-        <label>Share what brought you joy today:</label><br><br>
-        <table>
-            <tr>
-                <td><label>Title:</label></td>
-                <td><input id="title" type="text" placeholder="Enter a title" required></td>
-                <td><label>Date:</label></td>
-                <td><input id="date" type="date" name="date" required></td>
-            </tr>
-        </table>
-        <br>
-        <textarea id="diaryEntry" name="diaryEntry" rows="10" placeholder="Dear Diary, "></textarea><br><br>
-        <button type="button" id="saveButton">Save</button>
-        <input type="reset" value="Clear">
-    </form>
-    
-    <h2 style=" text-align : center">Your Diary Entries</h2>
-    <div id="entriesDisplay"></div>
 </body>
 </html>
