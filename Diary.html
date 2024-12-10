@@ -6,44 +6,61 @@
     <title>GratiVibe - Diary</title>
     <link rel="stylesheet" href="CSS/global.css">
     <link rel="stylesheet" href="CSS/Diarystyle.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("saveButton").addEventListener("click", function () {
+                
+
+                var title = document.getElementById("title").value;
+                var date = document.getElementById("date").value;
+                var entry = document.getElementById("diaryEntry").value;
+
+                if (!title || !date || !entry) {
+                    alert("Please fill out all fields.");
+                    return;
+                }
+
+                var entryDiv = document.createElement("div");
+                entryDiv.className = "diary-entry";
+                entryDiv.innerHTML = "<h3>" + title + "</h3>" +
+                    "<p><strong>Date:</strong> " + date + "</p>" +
+                    "<p>" + entry + "</p>" + "<hr>";
+                document.getElementById("entriesDisplay").appendChild(entryDiv);
+
+                document.getElementById("diaryForm").reset();
+            });
+        });
+    </script>
+
 </head>
 <body>
     <!-- Navigation Bar -->
-    
-        <div class="navbar">
-            <a href="index.html">Home</a>
-            <a href="mentalheath_blog.html">Mental Health Blog</a>
-            <a href="Diary.html" class="active">Diary</a>
-            <a href="todo_list.html">To-Do List</a>
-            <a href="moodtracker.html">Mood Tracker</a>
-        </div>
-  
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="mentalheath_blog.html">Mental Health Blog</a>
+        <a href="Diary.html" class="active">Diary</a>
+        <a href="todo_list.html">To-Do List</a>
+        <a href="moodtracker.html">Mood Tracker</a>
+    </div>
+
     <h1>My Diary</h1>
-    <form class=" form-container">
+    <form id="diaryForm" class="form-container">
         <label>Share what brought you joy today:</label><br><br>
-        
         <table>
             <tr>
-                <td>
-                    <label>Title:</label>
-                </td>
-                <td>
-                    <input type="text" placeholder="Enter a title" required>
-                </td>
-                <td>
-                    <label>Date:</label>
-                </td>
-                <td>
-                    <input type="date" name="date" required>
-                </td>
+                <td><label>Title:</label></td>
+                <td><input id="title" type="text" placeholder="Enter a title" required></td>
+                <td><label>Date:</label></td>
+                <td><input id="date" type="date" name="date" required></td>
             </tr>
         </table>
-
         <br>
-
-        <textarea class ="diaryEntry" id="diaryEntry" name="diaryEntry" rows="10" placeholder="Dear Diary, "></textarea><br><br>
-        <input type="submit" value="Save">
+        <textarea id="diaryEntry" name="diaryEntry" rows="10" placeholder="Dear Diary, "></textarea><br><br>
+        <button type="button" id="saveButton">Save</button>
         <input type="reset" value="Clear">
     </form>
+    
+    <h2 style=" text-align : center">Your Diary Entries</h2>
+    <div id="entriesDisplay"></div>
 </body>
 </html>
