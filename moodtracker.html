@@ -5,12 +5,181 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mood Tracker</title>
-    <link rel="stylesheet" href="CSS/tracker.css" >
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: #f4f4f4;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+        }
+
+        .navbar a.active {
+            background-color: #4CAF50;
+        }
+
+        .page-content {
+            padding-top: 80px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: forestgreen;
+            margin: 20px 0;
+            font-size: 36px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        form {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px;
+            border: 1px solid #e0e0e0;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: white;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: rgba(14, 82, 5, 0.918);
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .submit-button {
+            padding: 10px 20px;
+            background-color: rgba(96, 204, 119, 0.897);
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        .submit-button:hover {
+            background-color: rgba(0, 41, 18, 0.918);
+        }
+
+        .feelings-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+
+        .feelings-button {
+            display: flex;
+            align-items: center;
+            background-color: #40E0D0;
+            padding: 10px 20px;
+            border-radius: 30px;
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+            font-family: 'Georgia', serif;
+            transition: background-color 0.3s;
+            text-align: center;
+        }
+
+        .feelings-button:hover {
+            background-color: #37B5AD;
+        }
+
+        .icon-circle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #40E0D0;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .icon-image {
+            width: 24px;
+            height: 24px;
+        }
+
+        .notification {
+            display: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+            }
+
+            .navbar a {
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            form {
+                width: 95%;
+                margin: 10px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Navigation bar -->
     <div class="navbar">
         <a href="index.html">Home</a>
         <a href="mentalheath_blog.html">Mental health Blog</a>
@@ -19,41 +188,36 @@
         <a href="moodtracker.html" class="active">Mood Tracker</a>
     </div>
 
-      <h1 style="text-align: center; margin-bottom: 20px;">Mood Tracking Calendar</h1>
+    <div class="page-content">
+        <h1>Mood Tracking Calendar</h1>
 
-    <!-- Week Selection and Record Feelings Button -->
-    <div style="display: flex; align-items: center; margin-bottom: 20px; font-family: sans-serif;">
-        <label style=" color: #40E0D0" for="week">Select Week:</label>
-        <input type="week" id="week" name="week" style="margin-left: 10px;">
+        <form id="mood-form">
+            <label for="week">Select Week:</label>
+            <input type="week" id="week" name="week" style="margin: 10px 0;">
 
-        <!-- Record Feelings Button -->
-        <div class="feelings-container" style="margin-left: 20px;">
-            <div class="feelings-button">
-                <span>How are you feeling today?</span>
+            <div class="feelings-container">
                 <div class="icon-circle">
                     <img src="https://img.freepik.com/premium-vector/opened-book-diary-textbook-symbol-icon_8071-38658.jpg?w=1060" alt="Notebook Icon" class="icon-image">
                 </div>
+                <div class="feelings-button">
+                    How are you feeling today?
+                </div>
             </div>
-        </div>
-    </div>
 
-    <!-- Mood Tracking Form -->
-    <form action="submitted_data.html" method="GET">
-        <table>
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Monday</th>
-                    <th>Tuesday</th>
-                    <th>Wednesday</th>
-                    <th>Thursday</th>
-                    <th>Friday</th>
-                    <th>Saturday</th>
-                    <th>Sunday</th>
-                </tr>
-            </thead>
-            <tbody>
-                     <tr>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Monday</th>
+                        <th>Tuesday</th>
+                        <th>Wednesday</th>
+                        <th>Thursday</th>
+                        <th>Friday</th>
+                        <th>Saturday</th>
+                        <th>Sunday</th>
+                    </tr>
+                </thead>                <tbody>
+<tr>
                     <th>Feeling Happy <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Smiley.svg/1280px-Smiley.svg.png" width="20" height="20"></th>
                     <td><input type="checkbox" name="monday_feeling_happy"></td>
                     <td><input type="checkbox" name="tuesday_feeling_happy"></td>
@@ -128,10 +292,42 @@
         </table>
 
         <br>
-        <div style="text-align: center;">
-            <button class="submit-button" type="submit">Submit</button>
+        <div style="text-align: center;">       
+         <button type="button" id="submit-button" class="submit-button">Submit</button>
         </div>
     </form>
+
+     <script>
+        // Function to generate a random color
+        function getRandomColor() {
+            const letters = "0123456789ABCDEF";
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        // Change button colors on page load
+        window.onload = function () {
+            const feelingsButton = document.querySelector(".feelings-button");
+            const iconCircle = document.querySelector(".icon-circle");
+
+            const buttonColor = getRandomColor();
+            const circleColor = getRandomColor();
+
+            if (feelingsButton) feelingsButton.style.backgroundColor = buttonColor;
+            if (iconCircle) iconCircle.style.backgroundColor = circleColor;
+        };
+
+document.getElementById("submit-button").addEventListener("click", function() {
+            // Show success notification as an alert
+            alert("Form submitted successfully!");
+
+            // Prevent page reload or form submission
+            return false;
+        });
+</script>
 </body>
 
 </html>
