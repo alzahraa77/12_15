@@ -3,70 +3,304 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do List - GratiVibe</title>
-    <link rel="stylesheet" href="CSS/todo.css">
+    <title>Todo List App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: #f4f4f4;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+        }
+
+        .navbar a.active {
+            background-color: #4CAF50;
+        }
+
+        h1 {
+            color: forestgreen;
+            margin: 20px 0;
+            font-size: 36px;
+            font-family: 'Georgia', serif;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Rest of the existing Todo List CSS remains the same */
+        .page-content {
+            padding-top: 80px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        .categories span {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+        }
+
+        .new-task-form {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px;
+            border: 1px solid #e0e0e0;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .new-task-form input, 
+        .new-task-form textarea, 
+        .new-task-form select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .new-task-form button {
+            padding: 10px 20px;
+            background-color: rgba(96, 204, 119, 0.897);
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .new-task-form button:hover {
+            background-color: rgba(0, 41, 18, 0.918);
+        }
+
+        .todo-list {
+            margin: 20px;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .todo-list h2 {
+            margin-bottom: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: white;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        th {
+            background-color: rgba(14, 82, 5, 0.918);
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table button {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        table button:hover {
+            background-color: #ff1a1a;
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+            }
+            .navbar a {
+                padding: 10px;
+                font-size: 16px;
+            }
+            .categories {
+                flex-direction: column;
+                align-items: center;
+            }
+            .new-task-form, .todo-list {
+                width: 95%;
+                margin: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="main-container">
-        <!-- Navigation bar -->
-        <div class="navbar">
-            <a href="index.html">Home</a>
-            <a href="mentalheath_blog.html">Mental Health Blog</a>
-            <a href="Diary.html">Diary</a>
-            <a href="todo_list.html" class="active">To-Do List</a>
-            <a href="moodtracker.html">Mood Tracker</a>
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="mentalheath_blog.html">Mental Health Blog</a>
+        <a href="Diary.html">Diary</a>
+        <a href="todo_list.html" class="active">To-Do List</a>
+        <a href="moodtracker.html">Mood Tracker</a>
+    </nav>
+
+    <div class="page-content">
+        <h1>TODO List</h1>
+
+        <h2>Categories:</h2>
+        <div class="categories">
+            <span>Work</span>
+            <span>Study</span>
+            <span>Entertainment</span>
+            <span>Family</span>
         </div>
 
-        <!-- Page content -->
-        <div class="page-content">
-            <h1>TODO</h1>
-
-            <h3>Categories:</h3>
-            <ul>
-                <li>Work</li>
-                <li>Study</li>
-                <li>Entertainment</li>
-                <li>Family</li>
-            </ul>
-        </div>
-
-        <!-- Task list -->
-        <div class="todo-list">
-            <h2>Task List:</h2>
-            <table id="taskTable" border="1">
-                <tr>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Status</th>
-                </tr>
-                <tr>
-                    <td>The first task title</td>
-                    <td>Task Description.</td>
-                    <td><label><input type="checkbox"> Done</label></td>
-                </tr>
-            </table>
-        </div>
-
-        <!-- Hide done task -->
-        <label class="cursive" style="display: flex; align-items: center; justify-content: center;">
-            <input type="checkbox"> Hide done tasks
-        </label>
-        
-
-        <!-- New Task form -->
-        <div class="NewTask">
-            <h3>Add a New Task:</h3>
-            <form action="#">
-                <label for="taskTitle">Title:</label><br>
-                <input type="text" id="taskTitle" name="taskTitle"><br><br>
-
-                <label for="taskDescription">Description:</label><br>
-                <textarea id="taskDescription" name="taskDescription" rows="4" cols="50"></textarea><br><br>
-
-                <input type="submit" value="Add Task">
-                <button type="button">Cancel</button>
+        <div class="new-task-form">
+            <h2>Add a New Task</h2>
+            <form id="taskForm">
+                <input type="text" id="taskTitle" placeholder="Task Title" required>
+                <textarea id="taskDescription" placeholder="Task Description"></textarea>
+                <select id="taskCategory">
+                    <option value="Work">Work</option>
+                    <option value="Study">Study</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Family">Family</option>
+                </select>
+                <button type="submit">Add Task</button>
             </form>
         </div>
+
+        <div class="todo-list">
+            <h2>Task List</h2>
+            <label>
+                <input type="checkbox" id="hideCompletedTasks"> Hide completed tasks
+            </label>
+            <table id="taskTable">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="taskList">
+                    <!-- Tasks will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const taskForm = document.getElementById('taskForm');
+            const taskList = document.getElementById('taskList');
+            const hideCompletedTasksCheckbox = document.getElementById('hideCompletedTasks');
+            let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+            function renderTasks() {
+                taskList.innerHTML = '';
+                const filteredTasks = hideCompletedTasksCheckbox.checked 
+                    ? tasks.filter(task => !task.completed) 
+                    : tasks;
+
+                filteredTasks.forEach((task, index) => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${task.title}</td>
+                        <td>${task.description}</td>
+                        <td>${task.category}</td>
+                        <td>
+                            <input type="checkbox" ${task.completed ? 'checked' : ''} 
+                            onchange="toggleTaskStatus(${index})">
+                            ${task.completed ? 'Completed' : 'Pending'}
+                        </td>
+                        <td>
+                            <button onclick="deleteTask(${index})">Delete</button>
+                        </td>
+                    `;
+                    taskList.appendChild(row);
+                });
+                localStorage.setItem('tasks', JSON.stringify(tasks));
+            }
+
+            window.toggleTaskStatus = (index) => {
+                tasks[index].completed = !tasks[index].completed;
+                renderTasks();
+            };
+
+            window.deleteTask = (index) => {
+                tasks.splice(index, 1);
+                renderTasks();
+            };
+
+            taskForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const title = document.getElementById('taskTitle').value;
+                const description = document.getElementById('taskDescription').value;
+                const category = document.getElementById('taskCategory').value;
+
+                tasks.push({
+                    title,
+                    description,
+                    category,
+                    completed: false
+                });
+
+                renderTasks();
+                taskForm.reset();
+            });
+
+            hideCompletedTasksCheckbox.addEventListener('change', renderTasks);
+
+            renderTasks();
+        });
+    </script>
 </body>
 </html>
