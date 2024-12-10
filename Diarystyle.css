@@ -43,11 +43,18 @@ body {
 
 /* Center the title */
 h1 {
-    text-align: center; /* Center the title */
-    margin-top: 20px; /* Add some margin for spacing */
-    margin-bottom: 20px; /* Add some margin for spacing */
+    text-align: center; 
+    margin-top: 20px; 
+    margin-bottom: 20px; 
 }
+h2 {
+    
+    color: forestgreen;
+    text-align: center;
+    margin-top: 20px; 
+    margin-bottom: 20px; 
 
+}
 /* Basic styles for the form */
 form {
     text-align: center;
@@ -145,4 +152,47 @@ h1 {
     font-family: Arial, sans-serif;
     margin-top: 10px;
     margin-bottom: 20px;
+}
+/* styling for Save and Clear buttons */
+#saveButton,
+input[type="reset"] {
+    background-color: #448755; 
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+    margin: 10px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+    /* Hover effects */
+    #saveButton:hover,
+    input[type="reset"]:hover {
+        background-color: #448755; 
+        transform: scale(1.05); 
+    }
+
+    /* Active effects */
+    #saveButton:active,
+    input[type="reset"]:active {
+        background-color: #448755; 
+        transform: scale(0.98); 
+    }
+#entriesDisplay {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    
+    
+}
+
+.diary-entry {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    
 }
