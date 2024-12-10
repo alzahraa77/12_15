@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GratiVibe - Home</title>
-    <link rel="stylesheet" href="CSS/style.css" >
+    <link rel="stylesheet" href="CSS/homeStyle.css">
 </head>
 
 <body>
@@ -22,50 +22,81 @@
     <!-- Page content -->
     <div class="page-content">
 
-        <!-- Daily Affirmation -->
-        <div class="affirmation">
-            <p>"Every day is a fresh start, Believe in yourself and keep moving forward."</p></br>
-            
+        <!-- Daily Affirmation Section -->
+        <section class="affirmation">
+            <p id="daily-affirmation"></p>
+        </section>
+
         <!-- Intro Section -->
-        <div class="intro-section">
+        <section class="intro-section">
             <h1>Welcome to GratiVibe!</h1>
             <p>GratiVibe is a website designed to support mental health and mindfulness through a variety of interactive tools. Our platform includes features like a gratitude diary to help users reflect on positive experiences, daily affirmations to foster self-compassion, a mental health guide to give advice and encourage mental clarity, a self-care to-do list for tracking well-being tasks, and a mood tracker to help visualize user feelings weekly.</p>
-        </div>
+        </section>
+        
+        <section class="container">
+            <h3>Vision</h3>
+            <p>A world where mental wellness and gratitude are part of everyday life.</p>
+            <h3>Mission</h3>
+            <p>To empower individuals with tools and resources for mental health and personal growth.</p>
+        </section>
 
         <!-- Mental Health Blog Section -->
-        <div class="section mental-health">
-            <div class="section-content">
-                <h2>Mental Health Blog</h2>
-                <a href="mentalheath_blog.html" class="btn">Visit the Blog</a>
-            </div>
-        </div>
+        <section class="section-content mental-health">
+            <p class="section-description">Find comfort and guidance for your emotional journey in our mental health blog</p>
+            <h2>Mental Health Blog</h2>
+            <a href="mentalheath_blog.html" class="btn">Visit the Blog</a>
+        </section>
 
         <!-- Gratitude Diary Section -->
-        <div class="section gratitude-diary">
-            <div class="section-content">
-                <h2>Gratitude Diary</h2>
-                <a href="Diary.html" class="btn">Go to Gratitude Diary</a>
-            </div>
-        </div>
+        <section class="section-content gratitude-diary">
+            <p class="section-description">Transform everyday positivity into lasting memories</p>
+            <h2>Gratitude Diary</h2>
+            <a href="Diary.html" class="btn">Go to Gratitude Diary</a>
+        </section>
 
         <!-- To-Do List Section -->
-        <div class="section todo-list">
-            <div class="section-content">
-                <h2>To-Do List</h2>
-                <a href="todo_list.html" class="btn">Manage Your To-Do List</a>
-            </div>
-        </div>
+        <section class="section-content todo-list">
+            <p class="section-description">Turn your intentions into actions with a well-planned to-do list</p>
+            <h2>To-Do List</h2>
+            <a href="todo_list.html" class="btn">Manage Your To-Do List</a>
+        </section>
 
         <!-- Mood Tracker Section -->
-        <div class="section mood-tracker">
-            <div class="section-content">
-                <h2>Mood Tracker</h2>
-                <a href="moodtracker.html" class="btn">Track Your Mood</a>
-            </div>
-        </div>
+        <section class="section-content mood-tracker">
+            <p class="section-description"><em>Stay in tune with your emotions by tracking your mood over time</em></p>
+            <h2>Mood Tracker</h2>
+            <a href="moodtracker.html" class="btn">Track Your Mood</a>
+        </section>
 
     </div>
+    
+    <section class="OfficialLinks"> 
+        <h3>Check out these official links</h3>
+        <ul>
+            <li>Learn more about the services offered by Emirates Health Services for mental health by clicking the link below:</li>
+            <a href="https://www.ehs.gov.ae/en/services/services-directory/mental-health-services" target="_blank">Emirates Health Services for Mental Health</a>
+            
+            <li>Learn more about the services offered by Abu Dhabi Mental Health Center by clicking the link below:</li>
+            <a href="https://www.adphc.gov.ae/en/Public-Health-Programs/Mental-Health">Abu Dhabi Mental Health Center</a>
+            
+            <li>Learn more about the services offered by Cleveland Clinic Abu Dhabi for coping with the stigma of mental illness by clicking the link below:</li>
+            <a href="https://www.clevelandclinicabudhabi.ae/en/health-hub/health-resource/diseases-and-conditions/coping-with-the-stigma-of-mental-illness">Coping with the Stigma of Mental Illness</a>
+        </ul>
+    </section>
+    
+    <section class="video-section">
+        <h3>GratiVibe videos</h3>
+        <p>A video that speaks about our app and our goals:</p>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/0Pfg3XOTGrI" allowfullscreen></iframe>
+        </div>
 
+        <p>Positive Affirmations for Gratitude and Abundance:</p>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/9QfRfjiXVoQ" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <script src="homepage.js"></script>
 </body>
-
 </html>
