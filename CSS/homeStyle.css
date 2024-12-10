@@ -1,0 +1,211 @@
+/* General Page Styles */
+body {
+    margin: 0;
+    font-family: 'Georgia', serif; 
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Navigation Bar Styles */
+.navbar {
+    overflow: hidden;
+    background-color: #333; /* Dark background */
+    padding: 10px 0;
+    text-align: center;
+}
+
+.navbar a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+}
+
+.navbar a.active {
+    background-color: #4caf50; /* Green for the active page */
+    color: white;
+}
+
+.navbar a:hover {
+    background-color: #555; /* Gray for hover effect */
+}
+
+/* Section Styling */
+section {
+    margin: 10px 20px 40px; /* Additional top margin for descriptions */
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff; /* White background for contrast */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Section Description Styling */
+.section-description {
+    font-size: 19px;
+    color: #444;
+    margin-bottom: 10px;
+    font-style: italic;
+    text-align: left; /* Align text to the left */
+    margin-left: 20px; /* Left margin to position outside the section */
+}
+
+
+.affirmation {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 36px;
+    color: #1D4F3E; /* Dark green */
+    line-height: 1.5;
+    text-align: center;
+    padding: 30px;
+    background-color: #f9f9f9; /* Light gray background */
+}
+
+/* Intro Section */
+.intro-section {
+    padding: 30px;
+    background-color: #eef7f5; /* Light greenish-blue */
+    border-radius: 10px;
+    margin: 40px 20px;
+    text-align: center;
+}
+
+
+.container {
+    padding: 30px;
+    background-color: #eef7f5;
+    border-radius: 10px;
+    margin: 40px 20px;
+    text-align: center;
+}
+
+
+.OfficialLinks {
+    padding: 30px;
+    background-color: #eef7f5;
+    border-radius: 10px;
+    margin: 40px 20px;
+    text-align: center;
+}
+
+.video-section {
+            padding: 20px;
+            background-color: #eef7f5;
+            border-radius: 10px;
+            margin: 40px 20px;
+        }
+
+        .video-section h3 {
+            margin-top: 20px;
+        }
+
+        .video-section p {
+            margin-bottom: 20px;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px; /* Optional: Set a max width */
+            margin: 0 auto;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+.intro-section h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.intro-section p {
+    font-size: 20px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Section Background Images */
+ .mental-health{
+    background-image: url('https://welevelupfl.com/wp-content/uploads/2022/11/Mental-Health-Symbol.webp');
+}
+
+.gratitude-diary {
+    background-image: url('https://www.nm.org/-/media/northwestern/healthbeat/images/nm-start-gratitude-journal_preview.jpg?la=en&h=450&w=800&hash=F6BD864C5A512F1FBEF1AD5D037795AA');
+}
+
+.todo-list {
+    background-image: url('https://img.freepik.com/free-photo/flat-lay-notebook-with-list-desk_23-2148938724.jpg');
+}
+
+.mood-tracker {
+    background-image: url('https://www.blissey.com.au/cdn/shop/products/image_ed982ae4-5605-4772-9774-5e0f75aeac34.heic?v=1678835875&width=1946');
+}
+
+/* Section Content Styling */
+.section-content {
+    position: relative;
+    z-index: 2; /* Ensure content is above background images */
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for content */
+    padding: 20px;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+}
+
+.section-content h2 {
+    font-size: 25px;
+    color: #2d2d2d;
+}
+
+.section-content a.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4caf50; /* Green button */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+
+.section-content a.btn:hover {
+    background-color: #45a049; /* Slightly darker green for hover */
+    transition: background-color 0.3s ease;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+
+    .navbar a {
+        padding: 10px 15px;
+        font-size: 16px;
+    }
+
+    .section-content h2 {
+        font-size: 20px;
+    }
+
+    .section-description {
+        font-size: 16px;
+    }
+}
