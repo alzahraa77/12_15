@@ -87,32 +87,43 @@
     </div>
 
     <script>
-        function searchArticles() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            const articles = document.querySelectorAll('.article');
+       // Function to search articles based on the query
+function searchArticles() {
+    // Declare and initialize variables using var
+    var query = document.getElementById('searchInput').value.toLowerCase();
+    var articles = document.querySelectorAll('.article');
 
-            articles.forEach(article => {
-                const title = article.querySelector('h2').textContent.toLowerCase();
-                if (title.includes(query)) {
-                    article.style.display = '';
-                } else {
-                    article.style.display = 'none';
-                }
-            });
+    // Use a traditional for loop instead of forEach
+    for (var i = 0; i < articles.length; i++) {
+        var article = articles[i];
+        var title = article.querySelector('h2').textContent.toLowerCase();
+
+        if (title.indexOf(query) !== -1) {
+            article.style.display = '';
+        } else {
+            article.style.display = 'none';
         }
+    }
+}
 
-        function filterArticles() {
-            const filter = document.getElementById('filter').value;
-            const articles = document.querySelectorAll('.article');
+// Function to filter articles based on a selected topic
+function filterArticles() {
+    // Declare and initialize variables using var
+    var filter = document.getElementById('filter').value;
+    var articles = document.querySelectorAll('.article');
 
-            articles.forEach(article => {
-                if (filter === 'all' || article.dataset.topic === filter) {
-                    article.style.display = '';
-                } else {
-                    article.style.display = 'none';
-                }
-            });
+    // Use a traditional for loop instead of forEach
+    for (var i = 0; i < articles.length; i++) {
+        var article = articles[i];
+
+        if (filter === 'all' || article.getAttribute('data-topic') === filter) {
+            article.style.display = '';
+        } else {
+            article.style.display = 'none';
         }
+    }
+}
+    
     </script>
 </body>
 </html>
