@@ -1,4 +1,5 @@
- /* Basic reset */
+
+        /* Basic reset */
         * {
             margin: 0;
             padding: 0;
@@ -103,4 +104,14 @@
             .article-body {
                 font-size: 18px;
             }
+        }
+
+        /* New styles for sentence highlighting */
+        .sentence {
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .sentence:hover {
+            color: #4CAF50;
         }
