@@ -4,7 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mental Health Blog</title>
-    <link rel="stylesheet" href="CSS/blogstyle.css" >
+    <link rel="stylesheet" href="CSS/blogstyle.css">
+    <style>
+        /* Updated Styles */
+        .search-bar {
+            margin: 20px auto;
+            max-width: 600px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .search-bar button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .search-bar button:hover {
+            background-color: #45a049;
+        }
+
+        .filter-menu {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .filter-menu select {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -19,50 +61,100 @@
     <div class="main-content">
         <h1 style="text-align: center;">Mental Health Blog</h1>
 
-        <!-- Article 1 -->
-        <div class="article">
-            <a href="article1.html">
-                <img src="https://d1vcqlflm6aitx.cloudfront.net/images/800x100p/1630020073-4238903.webp" alt="Advice">
-                <h2>How We Live Through University: Balancing Success and Self-Care</h2>
-            </a>
-            <time datetime="2024-10-17">October 17, 2024</time>
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search articles...">
+            <button onclick="searchArticles()">Search</button>
         </div>
 
-        <!-- Article 2 -->
-        <div class="article">
-            <a href="article2.html">
-                <img src="https://static01.nyt.com/images/2016/12/02/well/move/yoga_body_images-slide-NY4R/yoga_body_images-slide-NY4R-jumbo.jpg" alt="Yoga">
-                <h2>The Benefits of Daily Meditation</h2>
-            </a>
-            <time datetime="2024-10-16">October 16, 2024</time>
+        <!-- Filter Menu -->
+        <div class="filter-menu">
+            <label for="filter">Filter by topic:</label>
+            <select id="filter" onchange="filterArticles()">
+                <option value="all">All</option>
+                <option value="meditation">Meditation</option>
+                <option value="yoga">Yoga</option>
+                <option value="mindfulness">Mindfulness</option>
+                <option value="journaling">Journaling</option>
+            </select>
         </div>
 
-        <!-- Article 3 -->
-        <div class="article">
-            <a href="article3.html">
-                <img src="https://www.simplypsychology.org/wp-content/uploads/mindfulness-practices.jpg" alt="Mindfulness">
-                <h2>Mindfulness Techniques for Beginners</h2>
-            </a>
-            <time datetime="2024-10-15">October 15, 2024</time>
-        </div>
+        <!-- Articles -->
+        <div id="articles">
+            <!-- Article 1 -->
+            <div class="article" data-topic="mindfulness">
+                <a href="article1.html">
+                    <img src="https://d1vcqlflm6aitx.cloudfront.net/images/800x100p/1630020073-4238903.webp" alt="Advice">
+                    <h2>How We Live Through University: Balancing Success and Self-Care</h2>
+                </a>
+                <time datetime="2024-10-17">October 17, 2024</time>
+            </div>
 
-        <!-- Article 4 -->
-        <div class="article">
-            <a href="article4.html">
-                <img src="https://spa-accor.imgix.net/https%3A%2F%2Fimages.ctfassets.net%2F6np2whvu93rb%2F7mqMFw4868adR1pHQj6jhE%2Ff350f0fea91d5b30019324498caddf7f%2FGettyImages-1401067175.jpg?ixlib=js-3.8.0&ar=16%3A9&auto=format&crop=edges&dpr=1&fit=crop&w=800&s=8c3981549344fc5859a3e09fe6a812fa" alt="Yoga Poses">
-                <h2>Yoga Poses for Relaxation</h2>
-            </a>
-            <time datetime="2024-10-14">October 14, 2024</time>
-        </div>
+            <!-- Article 2 -->
+            <div class="article" data-topic="meditation">
+                <a href="article2.html">
+                    <img src="https://static01.nyt.com/images/2016/12/02/well/move/yoga_body_images-slide-NY4R/yoga_body_images-slide-NY4R-jumbo.jpg" alt="Yoga">
+                    <h2>The Benefits of Daily Meditation</h2>
+                </a>
+                <time datetime="2024-10-16">October 16, 2024</time>
+            </div>
 
-        <!-- Article 5 -->
-        <div class="article">
-            <a href="article5.html">
-                <img src="https://i1.adis.ws/i/canon/get-inspired-creative-journaling-1-16.9_16bdf97f9d1e4bfdabbc1c115174fb4f?$hero-header-half-16by9-dt-jpg$" alt="Journaling">
-                <h2>Journaling as a Meditation Practice</h2>
-            </a>
-            <time datetime="2024-10-13">October 13, 2024</time>
+            <!-- Article 3 -->
+            <div class="article" data-topic="mindfulness">
+                <a href="article3.html">
+                    <img src="https://www.simplypsychology.org/wp-content/uploads/mindfulness-practices.jpg" alt="Mindfulness">
+                    <h2>Mindfulness Techniques for Beginners</h2>
+                </a>
+                <time datetime="2024-10-15">October 15, 2024</time>
+            </div>
+
+            <!-- Article 4 -->
+            <div class="article" data-topic="yoga">
+                <a href="article4.html">
+                    <img src="https://spa-accor.imgix.net/https%3A%2F%2Fimages.ctfassets.net%2F6np2whvu93rb%2F7mqMFw4868adR1pHQj6jhE%2Ff350f0fea91d5b30019324498caddf7f%2FGettyImages-1401067175.jpg?ixlib=js-3.8.0&ar=16%3A9&auto=format&crop=edges&dpr=1&fit=crop&w=800&s=8c3981549344fc5859a3e09fe6a812fa" alt="Yoga Poses">
+                    <h2>Yoga Poses for Relaxation</h2>
+                </a>
+                <time datetime="2024-10-14">October 14, 2024</time>
+            </div>
+
+            <!-- Article 5 -->
+            <div class="article" data-topic="journaling">
+                <a href="article5.html">
+                    <img src="https://i1.adis.ws/i/canon/get-inspired-creative-journaling-1-16.9_16bdf97f9d1e4bfdabbc1c115174fb4f?$hero-header-half-16by9-dt-jpg$" alt="Journaling">
+                    <h2>Journaling as a Meditation Practice</h2>
+                </a>
+                <time datetime="2024-10-13">October 13, 2024</time>
+            </div>
         </div>
     </div>
+
+    <script>
+        function searchArticles() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const articles = document.querySelectorAll('.article');
+
+            articles.forEach(article => {
+                const title = article.querySelector('h2').textContent.toLowerCase();
+                if (title.includes(query)) {
+                    article.style.display = '';
+                } else {
+                    article.style.display = 'none';
+                }
+            });
+        }
+
+        function filterArticles() {
+            const filter = document.getElementById('filter').value;
+            const articles = document.querySelectorAll('.article');
+
+            articles.forEach(article => {
+                if (filter === 'all' || article.dataset.topic === filter) {
+                    article.style.display = '';
+                } else {
+                    article.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </body>
 </html>
