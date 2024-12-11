@@ -64,69 +64,96 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const taskForm = document.getElementById('taskForm');
-            const taskList = document.getElementById('taskList');
-            const hideCompletedTasksCheckbox = document.getElementById('hideCompletedTasks');
-            let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+        // Adjusting code to remove localStorage and simplify based on fundamental methods
+document.addEventListener('DOMContentLoaded', function() {
+    var taskForm = document.getElementById('taskForm');
+    var taskList = document.getElementById('taskList');
+    var hideCompletedTasksCheckbox = document.getElementById('hideCompletedTasks');
+    var tasks = []; // No localStorage, tasks will only exist during session
 
-            function renderTasks() {
-                taskList.innerHTML = '';
-                const filteredTasks = hideCompletedTasksCheckbox.checked 
-                    ? tasks.filter(task => !task.completed) 
-                    : tasks;
-
-                filteredTasks.forEach((task, index) => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${task.title}</td>
-                        <td>${task.description}</td>
-                        <td>${task.category}</td>
-                        <td>
-                            <input type="checkbox" ${task.completed ? 'checked' : ''} 
-                            onchange="toggleTaskStatus(${index})">
-                            ${task.completed ? 'Completed' : 'Pending'}
-                        </td>
-                        <td>
-                            <button onclick="deleteTask(${index})">Delete</button>
-                        </td>
-                    `;
-                    taskList.appendChild(row);
-                });
-                localStorage.setItem('tasks', JSON.stringify(tasks));
+    function renderTasks() {
+        // Clear existing tasks
+        taskList.innerHTML = '';
+        
+        // Filter tasks if checkbox is checked
+        var filteredTasks = [];
+        for (var i = 0; i < tasks.length; i++) {
+            if (!hideCompletedTasksCheckbox.checked || !tasks[i].completed) {
+                filteredTasks.push(tasks[i]);
             }
+        }
 
-            window.toggleTaskStatus = (index) => {
-                tasks[index].completed = !tasks[index].completed;
-                renderTasks();
-            };
+        // Render tasks
+        for (var i = 0; i < filteredTasks.length; i++) {
+            var task = filteredTasks[i];
+            var row = document.createElement('tr');
 
-            window.deleteTask = (index) => {
-                tasks.splice(index, 1);
-                renderTasks();
-            };
+            var titleCell = document.createElement('td');
+            titleCell.textContent = task.title;
 
-            taskForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const title = document.getElementById('taskTitle').value;
-                const description = document.getElementById('taskDescription').value;
-                const category = document.getElementById('taskCategory').value;
+            var descriptionCell = document.createElement('td');
+            descriptionCell.textContent = task.description;
 
-                tasks.push({
-                    title,
-                    description,
-                    category,
-                    completed: false
-                });
+            var categoryCell = document.createElement('td');
+            categoryCell.textContent = task.category;
 
-                renderTasks();
-                taskForm.reset();
-            });
+            var statusCell = document.createElement('td');
+            var checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.checked = task.completed;
+            checkbox.addEventListener('change', (function(index) {
+                return function() {
+                    tasks[index].completed = !tasks[index].completed;
+                    renderTasks();
+                };
+            })(i));
+            statusCell.appendChild(checkbox);
+            statusCell.appendChild(document.createTextNode(task.completed ? ' Completed' : ' Pending'));
 
-            hideCompletedTasksCheckbox.addEventListener('change', renderTasks);
+            var actionCell = document.createElement('td');
+            var deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.addEventListener('click', (function(index) {
+                return function() {
+                    tasks.splice(index, 1);
+                    renderTasks();
+                };
+            })(i));
+            actionCell.appendChild(deleteButton);
 
-            renderTasks();
+            row.appendChild(titleCell);
+            row.appendChild(descriptionCell);
+            row.appendChild(categoryCell);
+            row.appendChild(statusCell);
+            row.appendChild(actionCell);
+
+            taskList.appendChild(row);
+        }
+    }
+
+    taskForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        var title = document.getElementById('taskTitle').value;
+        var description = document.getElementById('taskDescription').value;
+        var category = document.getElementById('taskCategory').value;
+
+        tasks.push({
+            title: title,
+            description: description,
+            category: category,
+            completed: false
         });
+
+        renderTasks();
+        taskForm.reset();
+    });
+
+    hideCompletedTasksCheckbox.addEventListener('change', renderTasks);
+
+    renderTasks();
+});
+
     </script>
 </body>
 </html>
