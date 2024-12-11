@@ -10,11 +10,10 @@
 </head>
 
 <body>
-
     <!-- Navigation bar -->
     <div class="navbar">
-        <a href="home.html" >Home</a>
-        <a href="mentalheath_blog.html"class="active">Mental Health Blog</a>
+        <a href="index.html">Home</a>
+        <a href="mentalheath_blog.html" class="active">Mental Health Blog</a>
         <a href="Diary.html">Diary</a>
         <a href="todo_list.html">To-Do List</a>
         <a href="moodtracker.html">Mood Tracker</a>
@@ -27,66 +26,8 @@
             <p class="article-author">By Al Zahraa Sobhe</p>
         </div>
 
-        <div class="article-body">
-            <p><strong>I</strong> learned the hard way. As a senior now, I look back on my first two years at university, and if I'm 
-            being honest, they were a blur. COVID had locked everything down, and suddenly, university life 
-            wasn't what I had dreamed it would be. Instead of lively campus vibes, late-night study sessions 
-            with friends, and spontaneous adventures, it was just me, my laptop, and the same four walls.</br>Every day felt like hitting repeat: attend lectures online, do what was required, submit 
-            assignments, go to bed, and do it all over again the next day.</P>
-          <p>  The world felt so small, and I felt stuck in it.</p>
-
-            <p>I didn't realize it then, but I was just surviving, not living. There was no balance, no joy, just 
-            deadlines and due dates. The idea of actually enjoying university? Forget it. I was too busy 
-            "getting through" to even think about that.</p>
-
-            <p>But here's what I've come to understand, and what I wish someone had told me sooner: 
-            University life isn't just about showing up to lectures, cramming for exams, and keeping up with 
-            the workload. It's about experiencing growth-personally as well as academically. Yes, studying 
-            is important. Yes, deadlines are real. But your mental health, your happiness, and your sense of 
-            fulfillment are equally important. And trust me, if you lose sight of those, it's easy to burn out.</p>
-
-            <p>I know, because I did.</p>
-
-            <p>When you're enrolled in 15+ credit hours, it feels like you're constantly sprinting. Your nights get 
-            shorter, your meals become whatever's fast, and self-care? It's pushed to the bottom of the to-do list, if it even makes the list at all. You start thinking that this is just how student life is 
-            supposed to be-one endless grind after another. But it doesn't have to be that way.</p>
-
-            <p>Here's the thing: taking five minutes for yourself can change everything. Seriously, just five 
-            minutes. Grab a coffee. Send a funny text to a friend. Listen to your favorite song on repeat. 
-            These small moments might seem insignificant, but they can recharge you in ways you won't 
-            believe. When I finally started doing this, it was like a breath of fresh air after being underwater 
-            for too long. You come back to your work with more energy, more focus. Suddenly, the world 
-            doesn't feel so heavy.</p>
-
-            <p>Because here's the truth: mental health is just as important as academic success. You can't 
-            pour from an empty cup, and if you don't take time to refill it, burnout will come for you. I've been 
-            there-tired, stressed, and convinced I had to keep going, even though every part of me was 
-            begging for a break. But you don't have to run on autopilot. Breaks aren't indulgences; they're 
-            necessary.</p>
-
-            <p>And speaking of breaks, let me be real: it's also okay to ask for help. I used to think I had to 
-            figure everything out on my own, that admitting I was struggling was some kind of failure. But it's 
-            not. University is hard, and you're not meant to navigate it solo. Whether it's asking your 
-            professor for clarification, teaming up with classmates, or using campus resources, reaching out 
-            doesn't make you weak, it makes you smart.</p>
-
-            <p>Another thing I've learned? Stop comparing yourself to others. It's a trap. I used to look around 
-            at people who seemed to be handling everything perfectly, wondering why I couldn't do the 
-            same. But here's the secret: no one has it all together. Everyone's struggling with something. 
-            Your journey is yours alone, and it's okay if it doesn't look like anyone else's. You're not falling 
-            behind. You're right where you need to be.</p>
-
-            <p>These past few years have taught me that success in university is about more than grades. It's 
-            about growth, learning who you are, what you need, and how to take care of yourself. It's about 
-            finding that sweet spot between academic achievement and personal well-being. You can have 
-            both. You should have both.</p>
-
-            <p>So, don't wait until after graduation to start living. Take that walk. Read that book. Laugh with 
-            your friends. These are the moments that will stick with you, not just the grades or the stress. 
-            Trust me, when you look back on these years, you'll want to remember more than just the grind. 
-            You'll want to remember the joy, the friendships, the times you took care of yourself.</p>
-
-            <p>Because in the end, university isn't just about getting through, it's about living fully.</p>
+        <div class="article-body" id="articleBody">
+            <!-- Content will be dynamically wrapped in sentence spans by JavaScript -->
         </div>
 
         <div class="article-footer">
@@ -94,6 +35,65 @@
         </div>
     </div>
 
-</body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the article content
+            const articleBody = document.getElementById('articleBody');
+            const content = `I learned the hard way. As a senior now, I look back on my first two years at university, and if I'm being honest, they were a blur. COVID had locked everything down, and suddenly, university life wasn't what I had dreamed it would be. Instead of lively campus vibes, late-night study sessions with friends, and spontaneous adventures, it was just me, my laptop, and the same four walls. Every day felt like hitting repeat: attend lectures online, do what was required, submit assignments, go to bed, and do it all over again the next day.
 
+            The world felt so small, and I felt stuck in it.
+
+            I didn't realize it then, but I was just surviving, not living. There was no balance, no joy, just deadlines and due dates. The idea of actually enjoying university? Forget it. I was too busy "getting through" to even think about that.
+
+            But here's what I've come to understand, and what I wish someone had told me sooner: University life isn't just about showing up to lectures, cramming for exams, and keeping up with the workload. It's about experiencing growth-personally as well as academically. Yes, studying is important. Yes, deadlines are real. But your mental health, your happiness, and your sense of fulfillment are equally important. And trust me, if you lose sight of those, it's easy to burn out.
+
+            I know, because I did.
+
+            When you're enrolled in 15+ credit hours, it feels like you're constantly sprinting. Your nights get shorter, your meals become whatever's fast, and self-care? It's pushed to the bottom of the to-do list, if it even makes the list at all. You start thinking that this is just how student life is supposed to be-one endless grind after another. But it doesn't have to be that way.
+
+            Here's the thing: taking five minutes for yourself can change everything. Seriously, just five minutes. Grab a coffee. Send a funny text to a friend. Listen to your favorite song on repeat. These small moments might seem insignificant, but they can recharge you in ways you won't believe. When I finally started doing this, it was like a breath of fresh air after being underwater for too long. You come back to your work with more energy, more focus. Suddenly, the world doesn't feel so heavy.
+
+            Because here's the truth: mental health is just as important as academic success. You can't pour from an empty cup, and if you don't take time to refill it, burnout will come for you. I've been there-tired, stressed, and convinced I had to keep going, even though every part of me was begging for a break. But you don't have to run on autopilot. Breaks aren't indulgences; they're necessary.
+
+            And speaking of breaks, let me be real: it's also okay to ask for help. I used to think I had to figure everything out on my own, that admitting I was struggling was some kind of failure. But it's not. University is hard, and you're not meant to navigate it solo. Whether it's asking your professor for clarification, teaming up with classmates, or using campus resources, reaching out doesn't make you weak, it makes you smart.
+
+            Another thing I've learned? Stop comparing yourself to others. It's a trap. I used to look around at people who seemed to be handling everything perfectly, wondering why I couldn't do the same. But here's the secret: no one has it all together. Everyone's struggling with something. Your journey is yours alone, and it's okay if it doesn't look like anyone else's. You're not falling behind. You're right where you need to be.
+
+            These past few years have taught me that success in university is about more than grades. It's about growth, learning who you are, what you need, and how to take care of yourself. It's about finding that sweet spot between academic achievement and personal well-being. You can have both. You should have both.
+
+            So, don't wait until after graduation to start living. Take that walk. Read that book. Laugh with your friends. These are the moments that will stick with you, not just the grades or the stress. Trust me, when you look back on these years, you'll want to remember more than just the grind. You'll want to remember the joy, the friendships, the times you took care of yourself.
+
+            Because in the end, university isn't just about getting through, it's about living fully.`;
+
+            // Function to create paragraph elements
+            function createParagraphElements(text) {
+                const paragraphs = text.split('\n\n');
+                return paragraphs.map(paragraph => {
+                    const p = document.createElement('p');
+                    const sentences = paragraph.trim().match(/[^.!?]+[.!?]+/g) || [];
+                    const wrappedSentences = sentences.map(sentence => 
+                        `<span class="sentence">${sentence.trim()}</span>`
+                    ).join(' ');
+                    p.innerHTML = wrappedSentences;
+                    return p;
+                });
+            }
+
+            // Create and append paragraphs
+            const paragraphs = createParagraphElements(content);
+            paragraphs.forEach(p => articleBody.appendChild(p));
+
+            // Add hover functionality (color change is handled by CSS)
+            document.querySelectorAll('.sentence').forEach(sentence => {
+                sentence.addEventListener('mouseenter', function() {
+                    this.style.color = '#4CAF50';
+                });
+                sentence.addEventListener('mouseleave', function() {
+                    this.style.color = '';
+                });
+            });
+        });
+    </script>
+</body>
 </html>
+
