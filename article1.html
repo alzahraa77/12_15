@@ -122,21 +122,24 @@
             <p>GratiVibe &copy; 2024</p>
         </div>
     </div>
-<script>// Select all sentences
-    const sentences = document.querySelectorAll('.sentence');
-    
-    // Loop through each sentence and add hover events
-    sentences.forEach(sentence => {
-        // Change color on mouse enter
-        sentence.addEventListener('mouseenter', function () {
-            this.style.color = '#4CAF50'; // Green
-        });
-    
-        // Revert color on mouse leave
-        sentence.addEventListener('mouseleave', function () {
-            this.style.color = ''; // Reset to default
-        });
+<script>
+     // Select all sentences
+     const sentences = document.querySelectorAll('.sentence');
+
+// Loop through each sentence and add hover events
+for (let i = 0; i < sentences.length; i++) {
+    const sentence = sentences[i];
+
+    // Change color on mouse enter
+    sentence.addEventListener('mouseenter', function () {
+        sentence.style.color = '#4CAF50'; // Green
     });
+
+    // Revert color on mouse leave
+    sentence.addEventListener('mouseleave', function () {
+        sentence.style.color = ''; // Reset to default
+    });
+}
     </script>
 
 </body>
